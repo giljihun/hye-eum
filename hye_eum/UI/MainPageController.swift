@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  hye:eum
+//  hye_eum
 //
 //  Created by mobicom on 5/9/24.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainPageController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

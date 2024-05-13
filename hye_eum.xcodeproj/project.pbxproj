@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F832BECEBFD005EC753 /* AppDelegate.swift */; };
 		F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F852BECEBFD005EC753 /* SceneDelegate.swift */; };
-		F27E0F882BECEBFD005EC753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F872BECEBFD005EC753 /* ViewController.swift */; };
+		F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F872BECEBFD005EC753 /* MainPageController.swift */; };
 		F27E0F8B2BECEBFD005EC753 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F8A2BECEBFD005EC753 /* Base */; };
 		F27E0F8E2BECEBFD005EC753 /* hye_eum.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F8C2BECEBFD005EC753 /* hye_eum.xcdatamodeld */; };
-		F27E0F902BECEC01005EC753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F8F2BECEC01005EC753 /* Assets.xcassets */; };
 		F27E0F932BECEC01005EC753 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F922BECEC01005EC753 /* Base */; };
+		F27E0F9D2BF1F7C6005EC753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F8F2BECEC01005EC753 /* Assets.xcassets */; };
+		F27E0F9F2BF20368005EC753 /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */; };
+		F27E0FA12BF20444005EC753 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F27E0F802BECEBFD005EC753 /* hye:eum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hye:eum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F27E0F802BECEBFD005EC753 /* hye_eum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hye_eum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27E0F832BECEBFD005EC753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F27E0F852BECEBFD005EC753 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F27E0F872BECEBFD005EC753 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F27E0F8A2BECEBFD005EC753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F27E0F872BECEBFD005EC753 /* MainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
+		F27E0F8A2BECEBFD005EC753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainPage.storyboard; sourceTree = "<group>"; };
 		F27E0F8D2BECEBFD005EC753 /* hye_eum.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hye_eum.xcdatamodel; sourceTree = "<group>"; };
-		F27E0F8F2BECEC01005EC753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F27E0F8F2BECEC01005EC753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = hye_eum/Resource/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F27E0F922BECEC01005EC753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F27E0F942BECEC01005EC753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F27E0F942BECEC01005EC753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hye_eum/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
+		F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
+		F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomePage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +46,7 @@
 		F27E0F772BECEBFD005EC753 = {
 			isa = PBXGroup;
 			children = (
-				F27E0F822BECEBFD005EC753 /* hye:eum */,
+				F27E0F822BECEBFD005EC753 /* hye_eum */,
 				F27E0F812BECEBFD005EC753 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,32 +54,58 @@
 		F27E0F812BECEBFD005EC753 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F27E0F802BECEBFD005EC753 /* hye:eum.app */,
+				F27E0F802BECEBFD005EC753 /* hye_eum.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F27E0F822BECEBFD005EC753 /* hye:eum */ = {
+		F27E0F822BECEBFD005EC753 /* hye_eum */ = {
 			isa = PBXGroup;
 			children = (
-				F27E0F832BECEBFD005EC753 /* AppDelegate.swift */,
-				F27E0F852BECEBFD005EC753 /* SceneDelegate.swift */,
-				F27E0F872BECEBFD005EC753 /* ViewController.swift */,
-				F27E0F892BECEBFD005EC753 /* Main.storyboard */,
-				F27E0F8F2BECEC01005EC753 /* Assets.xcassets */,
+				F27E0F9C2BF1F102005EC753 /* Resource */,
+				F27E0F9B2BF1F0EF005EC753 /* Supporting Files */,
+				F27E0F9A2BF1F0DF005EC753 /* UI */,
+			);
+			path = hye_eum;
+			sourceTree = "<group>";
+		};
+		F27E0F9A2BF1F0DF005EC753 /* UI */ = {
+			isa = PBXGroup;
+			children = (
 				F27E0F912BECEC01005EC753 /* LaunchScreen.storyboard */,
+				F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */,
+				F27E0F892BECEBFD005EC753 /* MainPage.storyboard */,
+				F27E0F872BECEBFD005EC753 /* MainPageController.swift */,
+				F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F27E0F9B2BF1F0EF005EC753 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				F27E0F942BECEC01005EC753 /* Info.plist */,
 				F27E0F8C2BECEBFD005EC753 /* hye_eum.xcdatamodeld */,
+				F27E0F832BECEBFD005EC753 /* AppDelegate.swift */,
+				F27E0F852BECEBFD005EC753 /* SceneDelegate.swift */,
 			);
-			path = "hye:eum";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F27E0F9C2BF1F102005EC753 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F27E0F8F2BECEC01005EC753 /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F27E0F7F2BECEBFD005EC753 /* hye:eum */ = {
+		F27E0F7F2BECEBFD005EC753 /* hye_eum */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F27E0F972BECEC01005EC753 /* Build configuration list for PBXNativeTarget "hye:eum" */;
+			buildConfigurationList = F27E0F972BECEC01005EC753 /* Build configuration list for PBXNativeTarget "hye_eum" */;
 			buildPhases = (
 				F27E0F7C2BECEBFD005EC753 /* Sources */,
 				F27E0F7D2BECEBFD005EC753 /* Frameworks */,
@@ -85,9 +115,9 @@
 			);
 			dependencies = (
 			);
-			name = "hye:eum";
+			name = hye_eum;
 			productName = "hye:eum";
-			productReference = F27E0F802BECEBFD005EC753 /* hye:eum.app */;
+			productReference = F27E0F802BECEBFD005EC753 /* hye_eum.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F27E0F7B2BECEBFD005EC753 /* Build configuration list for PBXProject "hye:eum" */;
+			buildConfigurationList = F27E0F7B2BECEBFD005EC753 /* Build configuration list for PBXProject "hye_eum" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F27E0F7F2BECEBFD005EC753 /* hye:eum */,
+				F27E0F7F2BECEBFD005EC753 /* hye_eum */,
 			);
 		};
 /* End PBXProject section */
@@ -128,8 +158,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F27E0F902BECEC01005EC753 /* Assets.xcassets in Resources */,
+				F27E0F9D2BF1F7C6005EC753 /* Assets.xcassets in Resources */,
 				F27E0F932BECEC01005EC753 /* Base in Resources */,
+				F27E0FA12BF20444005EC753 /* WelcomePage.storyboard in Resources */,
 				F27E0F8B2BECEBFD005EC753 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,8 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27E0F9F2BF20368005EC753 /* WelcomePageController.swift in Sources */,
 				F27E0F8E2BECEBFD005EC753 /* hye_eum.xcdatamodeld in Sources */,
-				F27E0F882BECEBFD005EC753 /* ViewController.swift in Sources */,
+				F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */,
 				F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */,
 				F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */,
 			);
@@ -151,12 +183,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F27E0F892BECEBFD005EC753 /* Main.storyboard */ = {
+		F27E0F892BECEBFD005EC753 /* MainPage.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F27E0F8A2BECEBFD005EC753 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainPage.storyboard;
 			sourceTree = "<group>";
 		};
 		F27E0F912BECEC01005EC753 /* LaunchScreen.storyboard */ = {
@@ -297,14 +329,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "hye:eum/Info.plist";
+				INFOPLIST_FILE = "hye_eum/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,14 +360,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "hye:eum/Info.plist";
+				INFOPLIST_FILE = "hye_eum/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,7 +386,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F27E0F7B2BECEBFD005EC753 /* Build configuration list for PBXProject "hye:eum" */ = {
+		F27E0F7B2BECEBFD005EC753 /* Build configuration list for PBXProject "hye_eum" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F27E0F952BECEC01005EC753 /* Debug */,
@@ -365,7 +395,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F27E0F972BECEC01005EC753 /* Build configuration list for PBXNativeTarget "hye:eum" */ = {
+		F27E0F972BECEC01005EC753 /* Build configuration list for PBXNativeTarget "hye_eum" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F27E0F982BECEC01005EC753 /* Debug */,
