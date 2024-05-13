@@ -15,47 +15,56 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let scene = (scene as? UIWindowScene) else { return }
         
+        guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene:  scene)
         
-        let main_sb = UIStoryboard(name: "MainPage", bundle: nil)
-        let welcome_sb = UIStoryboard(name: "WelcomePage", bundle: nil)
-        
-        // 초기설정 완료 여부 확인
-        let isRegistered = UserDefaults.standard.bool(forKey: "isRegistered")
-        
-        if isRegistered {
-            guard let mainVC = main_sb.instantiateViewController(withIdentifier: "MainPageController") as? MainPageController else
-            { return }
-            window?.rootViewController = mainVC
-        } else {
-            guard let welcomeVC = welcome_sb.instantiateViewController(withIdentifier: "WelcomePageController") as? WelcomePageController else
-            { return }
-            window?.rootViewController = welcomeVC
-        }
-        
+        // Splash 페이지로 이동
+        let sb = UIStoryboard(name: "SplashPage", bundle: nil)
+        guard let splashVC = sb.instantiateViewController(withIdentifier: "SplashPageController") as? SplashPageController else { return }
+        window?.rootViewController = splashVC
         window?.makeKeyAndVisible()
         
-//        if userDefaults.bool(forKey: "NotFirst") == false {
-//            userDefaults.set(true, forKey: "NotFirst")
-//            
-//            // sb - storyboard, vc - viewcontroller
-//            // 최초 실행 -> WelcomePage 이동
-//            let sb = UIStoryboard(name: "WelcomePage", bundle: nil)
-//            guard let vc = sb.instantiateViewController(withIdentifier: "WelcomePageController") as? WelcomePageController else { return }
-//            
-//            window?.rootViewController = vc
-//            window?.makeKeyAndVisible()
-//        } else {
-//            
-//            // 기실행 존재 -> MainPage
-//            let sb = UIStoryboard(name: "MainPage", bundle: nil)
-//            guard let vc = sb.instantiateViewController(withIdentifier: "MainPageController") as? MainPageController else { return }
-//            
-//            window?.rootViewController = vc
-//            window?.makeKeyAndVisible()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let main_sb = UIStoryboard(name: "MainPage", bundle: nil)
+            let welcome_sb = UIStoryboard(name: "WelcomePage", bundle: nil)
+            
+            // 초기설정 완료 여부 확인
+            let isRegistered = UserDefaults.standard.bool(forKey: "isRegistered")
+            
+            if isRegistered {
+                guard let mainVC = main_sb.instantiateViewController(withIdentifier: "MainPageController") as? MainPageController else
+                { return }
+                self.window?.rootViewController = mainVC
+            } else {
+                guard let welcomeVC = welcome_sb.instantiateViewController(withIdentifier: "WelcomePageController") as? WelcomePageController else
+                { return }
+                self.window?.rootViewController = welcomeVC
+            }
+            
+            self.window?.makeKeyAndVisible()
+        }
+        
+        // << 단순 최초 실행만 판별하는 코드 >>
+        //        if userDefaults.bool(forKey: "NotFirst") == false {
+        //            userDefaults.set(true, forKey: "NotFirst")
+        //
+        //            // sb - storyboard, vc - viewcontroller
+        //            // 최초 실행 -> WelcomePage 이동
+        //            let sb = UIStoryboard(name: "WelcomePage", bundle: nil)
+        //            guard let vc = sb.instantiateViewController(withIdentifier: "WelcomePageController") as? WelcomePageController else { return }
+        //
+        //            window?.rootViewController = vc
+        //            window?.makeKeyAndVisible()
+        //        } else {
+        //
+        //            // 기실행 존재 -> MainPage
+        //            let sb = UIStoryboard(name: "MainPage", bundle: nil)
+        //            guard let vc = sb.instantiateViewController(withIdentifier: "MainPageController") as? MainPageController else { return }
+        //
+        //            window?.rootViewController = vc
+        //            window?.makeKeyAndVisible()
+        //        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

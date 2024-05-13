@@ -16,6 +16,10 @@
 		F27E0F9D2BF1F7C6005EC753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F8F2BECEC01005EC753 /* Assets.xcassets */; };
 		F27E0F9F2BF20368005EC753 /* WelcomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */; };
 		F27E0FA12BF20444005EC753 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */; };
+		F27E0FA32BF22F13005EC753 /* SplashPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0FA22BF22F13005EC753 /* SplashPageController.swift */; };
+		F27E0FA52BF23362005EC753 /* SplashPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA42BF23362005EC753 /* SplashPage.storyboard */; };
+		F27E0FA92BF23C5F005EC753 /* KCC-Sonkeechung.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA72BF23C5F005EC753 /* KCC-Sonkeechung.ttf */; };
+		F27E0FAA2BF23C5F005EC753 /* KCC-Sonkeechung.otf in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA82BF23C5F005EC753 /* KCC-Sonkeechung.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		F27E0F942BECEC01005EC753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hye_eum/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
 		F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageController.swift; sourceTree = "<group>"; };
 		F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomePage.storyboard; sourceTree = "<group>"; };
+		F27E0FA22BF22F13005EC753 /* SplashPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPageController.swift; sourceTree = "<group>"; };
+		F27E0FA42BF23362005EC753 /* SplashPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashPage.storyboard; sourceTree = "<group>"; };
+		F27E0FA72BF23C5F005EC753 /* KCC-Sonkeechung.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KCC-Sonkeechung.ttf"; sourceTree = "<group>"; };
+		F27E0FA82BF23C5F005EC753 /* KCC-Sonkeechung.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KCC-Sonkeechung.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 		F27E0F822BECEBFD005EC753 /* hye_eum */ = {
 			isa = PBXGroup;
 			children = (
+				F27E0FAB2BF240D1005EC753 /* dummy */,
 				F27E0F9C2BF1F102005EC753 /* Resource */,
 				F27E0F9B2BF1F0EF005EC753 /* Supporting Files */,
 				F27E0F9A2BF1F0DF005EC753 /* UI */,
@@ -72,11 +81,12 @@
 		F27E0F9A2BF1F0DF005EC753 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F27E0F912BECEC01005EC753 /* LaunchScreen.storyboard */,
+				F27E0FA42BF23362005EC753 /* SplashPage.storyboard */,
 				F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */,
 				F27E0F892BECEBFD005EC753 /* MainPage.storyboard */,
-				F27E0F872BECEBFD005EC753 /* MainPageController.swift */,
+				F27E0FA22BF22F13005EC753 /* SplashPageController.swift */,
 				F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */,
+				F27E0F872BECEBFD005EC753 /* MainPageController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -95,9 +105,27 @@
 		F27E0F9C2BF1F102005EC753 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F27E0FA62BF23BBB005EC753 /* Fonts */,
 				F27E0F8F2BECEC01005EC753 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		F27E0FA62BF23BBB005EC753 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F27E0FA82BF23C5F005EC753 /* KCC-Sonkeechung.otf */,
+				F27E0FA72BF23C5F005EC753 /* KCC-Sonkeechung.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F27E0FAB2BF240D1005EC753 /* dummy */ = {
+			isa = PBXGroup;
+			children = (
+				F27E0F912BECEC01005EC753 /* LaunchScreen.storyboard */,
+			);
+			path = dummy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,10 +186,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27E0FAA2BF23C5F005EC753 /* KCC-Sonkeechung.otf in Resources */,
 				F27E0F9D2BF1F7C6005EC753 /* Assets.xcassets in Resources */,
 				F27E0F932BECEC01005EC753 /* Base in Resources */,
 				F27E0FA12BF20444005EC753 /* WelcomePage.storyboard in Resources */,
+				F27E0FA52BF23362005EC753 /* SplashPage.storyboard in Resources */,
 				F27E0F8B2BECEBFD005EC753 /* Base in Resources */,
+				F27E0FA92BF23C5F005EC753 /* KCC-Sonkeechung.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27E0FA32BF22F13005EC753 /* SplashPageController.swift in Sources */,
 				F27E0F9F2BF20368005EC753 /* WelcomePageController.swift in Sources */,
 				F27E0F8E2BECEBFD005EC753 /* hye_eum.xcdatamodeld in Sources */,
 				F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */,
@@ -331,7 +363,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "hye_eum/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashPage.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -362,7 +394,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "hye_eum/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = SplashPage.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
