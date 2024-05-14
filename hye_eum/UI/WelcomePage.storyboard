@@ -17,57 +17,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUV-NG-629">
-                                <rect key="frame" x="35" y="320" width="323" height="225"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUV-NG-629">
+                                <rect key="frame" x="161" y="408" width="71" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-z2-b1E">
-                                <rect key="frame" x="111" y="204" width="171" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="혜">
-                                        <attributes>
-                                            <font key="NSFont" size="72" name="KCC-Sonkeechung"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aj4-Qv-eIg">
-                                <rect key="frame" x="111" y="307" width="171" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="  음">
-                                        <attributes>
-                                            <font key="NSFont" size="72" name="KCC-Sonkeechung"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developed by MOBICOM.Lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF1-SL-Bdh">
-                                <rect key="frame" x="106" y="784" width="167" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by MOBICOM.Lab" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF1-SL-Bdh">
+                                <rect key="frame" x="113.33333333333333" y="784.33333333333337" width="166.66666666666669" height="15.666666666666629"/>
                                 <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwf-nL-9ih">
-                                <rect key="frame" x="169" y="589" width="54" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwf-nL-9ih">
+                                <rect key="frame" x="169.66666666666666" y="498.99999999999994" width="53.666666666666657" height="34.333333333333314"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="다음"/>
                                 <connections>
                                     <action selector="registerButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fzQ-8g-uhr"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oSI-KO-Gnn">
+                                <rect key="frame" x="149.66666666666666" y="199.33333333333337" width="93.666666666666657" height="178.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-z2-b1E">
+                                        <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="89.333333333333329"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="혜">
+                                                <attributes>
+                                                    <font key="NSFont" size="72" name="KCC-Sonkeechung"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aj4-Qv-eIg">
+                                        <rect key="frame" x="0.0" y="89.333333333333343" width="93.666666666666671" height="89.333333333333343"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="  음">
+                                                <attributes>
+                                                    <font key="NSFont" size="72" name="KCC-Sonkeechung"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jwf-nL-9ih" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7Bb-xY-AUd"/>
+                            <constraint firstItem="TF1-SL-Bdh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="9ML-gv-gsg"/>
+                            <constraint firstItem="qUV-NG-629" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="DaF-hB-AY5"/>
+                            <constraint firstItem="qUV-NG-629" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="F26-bT-wCv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TF1-SL-Bdh" secondAttribute="bottom" constant="18" id="Vko-FP-yNe"/>
+                            <constraint firstItem="oSI-KO-Gnn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gsd-8T-dKf"/>
+                            <constraint firstItem="qUV-NG-629" firstAttribute="top" secondItem="oSI-KO-Gnn" secondAttribute="bottom" constant="30" id="qQr-Ad-t8A"/>
+                            <constraint firstItem="Jwf-nL-9ih" firstAttribute="top" secondItem="qUV-NG-629" secondAttribute="bottom" constant="55" id="vpq-sa-PBr"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="devByLogo" destination="TF1-SL-Bdh" id="Tgq-3H-odi"/>

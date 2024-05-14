@@ -24,8 +24,9 @@ class WelcomePageController: UIViewController {
     
     var currentMentIndex = 0
     var mentTimer: Timer?
-    let mentDuration: TimeInterval = 2.3
-    let fadeDuration: TimeInterval = 1.5
+    // 애니메이션 간격 설정 -> 테스트 이후 2.3, 1.5로 변경 요망
+    let mentDuration: TimeInterval = 0.3
+    let fadeDuration: TimeInterval = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +90,7 @@ class WelcomePageController: UIViewController {
                 self.mentTimer = nil
 
                 // 마무리 멘트!
-                self.openingMent.text = "\n\n\n\n\n그 전에, 당신에 대해 몇가지 물어볼게요. \n\n 아래 버튼을 눌러주세요."
+                self.openingMent.text = "그 전에, 당신에 대해 몇가지 물어볼게요. \n\n 아래 버튼을 눌러주세요."
                 UIView.animate(withDuration: self.fadeDuration) {
                     self.openingMent.alpha = 1.0
                     self.welcome_nextBtn.alpha = 1.0
