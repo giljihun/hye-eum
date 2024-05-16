@@ -25,8 +25,8 @@ class WelcomePageController: UIViewController {
     var currentMentIndex = 0
     var mentTimer: Timer?
     // 애니메이션 간격 설정 -> 테스트 이후 2.3, 1.5로 변경 요망
-    let mentDuration: TimeInterval = 2.3
-    let fadeDuration: TimeInterval = 1.5
+    let mentDuration: TimeInterval = 1.7
+    let fadeDuration: TimeInterval = 1.2
     
     override func viewDidLoad() {
         super.viewDidLoad()

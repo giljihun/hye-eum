@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274332D2BF5F449009FC3F8 /* InputPage.storyboard */; };
+		F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274332F2BF5F465009FC3F8 /* InputPageController.swift */; };
+		F27433322BF5F4E1009FC3F8 /* InputModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433312BF5F4E1009FC3F8 /* InputModalController.swift */; };
+		F27433342BF5F4EF009FC3F8 /* InputModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27433332BF5F4EF009FC3F8 /* InputModal.storyboard */; };
+		F27433362BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27433352BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard */; };
+		F27433382BF5F7FE009FC3F8 /* CreateDiaryPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433372BF5F7FE009FC3F8 /* CreateDiaryPageController.swift */; };
+		F274333C2BF5F8A8009FC3F8 /* StatsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274333B2BF5F8A8009FC3F8 /* StatsPage.storyboard */; };
+		F274333E2BF5F8C0009FC3F8 /* StatsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274333D2BF5F8C0009FC3F8 /* StatsPageController.swift */; };
+		F27433402BF5F902009FC3F8 /* OptionPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274333F2BF5F902009FC3F8 /* OptionPage.storyboard */; };
+		F27433422BF5F912009FC3F8 /* OptionPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433412BF5F912009FC3F8 /* OptionPageController.swift */; };
 		F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F832BECEBFD005EC753 /* AppDelegate.swift */; };
 		F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F852BECEBFD005EC753 /* SceneDelegate.swift */; };
 		F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E0F872BECEBFD005EC753 /* MainPageController.swift */; };
@@ -23,6 +33,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F274332D2BF5F449009FC3F8 /* InputPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputPage.storyboard; sourceTree = "<group>"; };
+		F274332F2BF5F465009FC3F8 /* InputPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPageController.swift; sourceTree = "<group>"; };
+		F27433312BF5F4E1009FC3F8 /* InputModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModalController.swift; sourceTree = "<group>"; };
+		F27433332BF5F4EF009FC3F8 /* InputModal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputModal.storyboard; sourceTree = "<group>"; };
+		F27433352BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateDiaryPage.storyboard; sourceTree = "<group>"; };
+		F27433372BF5F7FE009FC3F8 /* CreateDiaryPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryPageController.swift; sourceTree = "<group>"; };
+		F274333B2BF5F8A8009FC3F8 /* StatsPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StatsPage.storyboard; sourceTree = "<group>"; };
+		F274333D2BF5F8C0009FC3F8 /* StatsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsPageController.swift; sourceTree = "<group>"; };
+		F274333F2BF5F902009FC3F8 /* OptionPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OptionPage.storyboard; sourceTree = "<group>"; };
+		F27433412BF5F912009FC3F8 /* OptionPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionPageController.swift; sourceTree = "<group>"; };
 		F27E0F802BECEBFD005EC753 /* hye_eum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hye_eum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27E0F832BECEBFD005EC753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F27E0F852BECEBFD005EC753 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,10 +103,20 @@
 			children = (
 				F27E0FA42BF23362005EC753 /* SplashPage.storyboard */,
 				F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */,
+				F274332D2BF5F449009FC3F8 /* InputPage.storyboard */,
+				F27433332BF5F4EF009FC3F8 /* InputModal.storyboard */,
 				F27E0F892BECEBFD005EC753 /* MainPage.storyboard */,
+				F27433352BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard */,
+				F274333B2BF5F8A8009FC3F8 /* StatsPage.storyboard */,
+				F274333F2BF5F902009FC3F8 /* OptionPage.storyboard */,
 				F27E0FA22BF22F13005EC753 /* SplashPageController.swift */,
 				F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */,
+				F274332F2BF5F465009FC3F8 /* InputPageController.swift */,
+				F27433312BF5F4E1009FC3F8 /* InputModalController.swift */,
 				F27E0F872BECEBFD005EC753 /* MainPageController.swift */,
+				F27433372BF5F7FE009FC3F8 /* CreateDiaryPageController.swift */,
+				F274333D2BF5F8C0009FC3F8 /* StatsPageController.swift */,
+				F27433412BF5F912009FC3F8 /* OptionPageController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -187,12 +217,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F27E0FAA2BF23C5F005EC753 /* KCC-Sonkeechung.otf in Resources */,
+				F27433342BF5F4EF009FC3F8 /* InputModal.storyboard in Resources */,
+				F27433402BF5F902009FC3F8 /* OptionPage.storyboard in Resources */,
 				F27E0F9D2BF1F7C6005EC753 /* Assets.xcassets in Resources */,
 				F27E0F932BECEC01005EC753 /* Base in Resources */,
+				F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */,
 				F27E0FA12BF20444005EC753 /* WelcomePage.storyboard in Resources */,
+				F274333C2BF5F8A8009FC3F8 /* StatsPage.storyboard in Resources */,
 				F27E0FA52BF23362005EC753 /* SplashPage.storyboard in Resources */,
 				F27E0F8B2BECEBFD005EC753 /* Base in Resources */,
 				F27E0FA92BF23C5F005EC753 /* KCC-Sonkeechung.ttf in Resources */,
+				F27433362BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,12 +238,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27433382BF5F7FE009FC3F8 /* CreateDiaryPageController.swift in Sources */,
 				F27E0FA32BF22F13005EC753 /* SplashPageController.swift in Sources */,
+				F27433322BF5F4E1009FC3F8 /* InputModalController.swift in Sources */,
 				F27E0F9F2BF20368005EC753 /* WelcomePageController.swift in Sources */,
+				F27433422BF5F912009FC3F8 /* OptionPageController.swift in Sources */,
+				F274333E2BF5F8C0009FC3F8 /* StatsPageController.swift in Sources */,
 				F27E0F8E2BECEBFD005EC753 /* hye_eum.xcdatamodeld in Sources */,
 				F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */,
 				F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */,
 				F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */,
+				F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
