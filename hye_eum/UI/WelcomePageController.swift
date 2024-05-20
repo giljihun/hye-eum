@@ -37,7 +37,7 @@ class WelcomePageController: UIViewController {
         configureOpeningMentLabel()
         startMentAnimation()
     }
-    
+    // 멘트 디자인
     private func configureOpeningMentLabel() {
         openingMent.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         openingMent.textColor = .darkGray
