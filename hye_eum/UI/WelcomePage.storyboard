@@ -79,6 +79,7 @@
                             <constraint firstItem="Jwf-nL-9ih" firstAttribute="top" secondItem="qUV-NG-629" secondAttribute="bottom" constant="55" id="vpq-sa-PBr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7MV-D4-ygu"/>
                     <connections>
                         <outlet property="devByLogo" destination="TF1-SL-Bdh" id="Tgq-3H-odi"/>
                         <outlet property="logoTextOne" destination="aoo-z2-b1E" id="prq-ry-nfy"/>
@@ -89,7 +90,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.1145038167939" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="1736.6412213740457" y="2.8169014084507045"/>
+        </scene>
+        <!--InputPageController-->
+        <scene sceneID="Q3g-er-C18">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="InputPageController" storyboardName="InputPage" referencedIdentifier="InputPageController" id="dAW-t7-Jrf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGN-ay-dwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2327" y="13"/>
         </scene>
     </scenes>
     <resources>
