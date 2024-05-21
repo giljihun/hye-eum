@@ -13,6 +13,13 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var inputBtn: UIButton!
     
+    @IBOutlet weak var nicknameTextField: UITextField!
+    @IBOutlet weak var birthPicker: UIDatePicker!
+    @IBOutlet weak var nextBtn: UIButton!
+    
+    @IBOutlet weak var nickLabel: UILabel!
+    @IBOutlet weak var birthLabel: UILabel!
+    
     // 질문, 질문 : 답변 저장 배열
     let questions: [String] = [
         "만약 당신의 성격이 음식이라면, 그 음식은 무엇일까요?",
@@ -44,6 +51,9 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     
     // 유저 성향
     var alignment: String?
+    
+    // 사용자가 선택한 닉네임
+    var selectedNickname: String?
     
     // 애니메이션
     let fadeDuration: TimeInterval = 1.5
@@ -90,7 +100,8 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     
     // 질문 로직
     func presentQuestion() {
-        if questionIndex < 5 {
+        // 기존 인덱스 -> 5
+        if questionIndex < 1 {
             let randomQuestion = getRandomQuestion()
             questionLabel.text = randomQuestion
             questionLabel.numberOfLines = 0
@@ -152,9 +163,31 @@ class InputPageController: UIViewController, UITextFieldDelegate {
         
         print(requestBody)
         // "잠시만 기다려주세요..." 메시지 표시
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.questionLabel.text = "잠시만 기다려주세요..."
-            self.generateNickname()
+        
+        // !!!! TEST 하느라 주석처리 !!!!!
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//            self.questionLabel.text = "잠시만 기다려주세요..."
+//            self.generateNickname()
+//        }
+        // 닉네임 변경 필드, 생년월일 입력, 버튼 표시
+        nicknameTextField.alpha = 0.0
+        birthPicker.alpha = 0.0
+        nextBtn.alpha = 0.0
+        nickLabel.alpha = 0.0
+        birthLabel.alpha = 0.0
+        
+        nicknameTextField.isHidden = false
+        birthPicker.isHidden = false
+        nextBtn.isHidden = false
+        nickLabel.isHidden = false
+        birthLabel.isHidden = false
+        
+        UIView.animate(withDuration: fadeDuration) {
+            self.nicknameTextField.alpha = 1.0
+            self.birthPicker.alpha = 1.0
+            self.nextBtn.alpha = 1.0
+            self.nickLabel.alpha = 1.0
+            self.birthLabel.alpha = 1.0
         }
     }
     
@@ -208,6 +241,113 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     
     func displayNickname(_ nickname: String) {
         questionLabel.text = "[\(nickname)] \n 위 닉네임은 어떤가요?"
+        selectedNickname = nickname
+        
+        // 닉네임 변경 필드, 생년월일 입력, 버튼 표시
+        nicknameTextField.alpha = 0.0
+        birthPicker.alpha = 0.0
+        nextBtn.alpha = 0.0
+        nickLabel.alpha = 0.0
+        birthLabel.alpha = 0.0
+        
+        nicknameTextField.isHidden = false
+        birthPicker.isHidden = false
+        nextBtn.isHidden = false
+        nickLabel.isHidden = false
+        birthLabel.isHidden = false
+        
+        UIView.animate(withDuration: fadeDuration) {
+            self.nicknameTextField.alpha = 1.0
+            self.birthPicker.alpha = 1.0
+            self.nextBtn.alpha = 1.0
+            self.nickLabel.alpha = 1.0
+            self.birthLabel.alpha = 1.0
+        }
+        nicknameTextField.text = selectedNickname
+    }
+    
+    // 선택된 날짜
+    
+    @IBAction func birthPickerValueChanged(_ sender: UIDatePicker) {
+        let selectedDate = sender.date
+        print("Selected date: \(selectedDate)")
+    }
+    
+    func createUser(nickname: String, birth: String) {
+        // 최초접속 관련 설정
+        // UserDefaults.standard.set(true, forKey: "isRegistered")
+        
+        // POST 요청 보내기
+        let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/users")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let requestBody: [String: Any] = [
+            "user_name" : nickname,
+            "birth": birth,
+            "alignment": alignment ?? "",
+            "template": false,
+            "polite": true
+        ]
+        
+        // 유저 입력 정보 출력
+        print("Request URL: \(url)")
+        print("Request Body: \(requestBody)")
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: requestBody)
+        
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            // 서버 응답 출력
+            print("Server Response: \(String(describing: response))")
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            if let jsonResult = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                print("User created successfully")
+                print("Response: \(jsonResult)")
+                
+                DispatchQueue.main.async {
+                    // 유저 생성 완료 후 메인 이동!!
+                    let storyboard = UIStoryboard(name: "MainPageController", bundle: nil)
+                    if let mainPageViewController = storyboard.instantiateInitialViewController() {
+                        mainPageViewController.modalPresentationStyle = .fullScreen
+                        self.present(mainPageViewController, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    @IBAction func nextBtnTapped(_ sender: UIButton) {
+        guard let nickname = nicknameTextField.text else {
+            return
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let birthDate = dateFormatter.string(from: birthPicker.date)
+        
+        
+        // createUser(nickname: nickname, birth: birthDate)
+        
+        // !!!!! TEST CODE !!!!! 모달 -> 뷰이동으로 변경요망
+        let mainVC = UIStoryboard.init(name: "MainPage", bundle: nil)
+        guard let nextVC = mainVC.instantiateViewController(identifier: "MainPageController") as? MainPageController else {
+            return
+        }
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true, completion: nil)
     }
     
     // 키보드가 보여질 때 로직

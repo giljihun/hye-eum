@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F20729E02BFCEF2C007A301B /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F892BECEBFD005EC753 /* MainPage.storyboard */; };
 		F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274332D2BF5F449009FC3F8 /* InputPage.storyboard */; };
 		F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274332F2BF5F465009FC3F8 /* InputPageController.swift */; };
 		F27433322BF5F4E1009FC3F8 /* InputModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433312BF5F4E1009FC3F8 /* InputModalController.swift */; };
@@ -104,7 +105,6 @@
 				F27E0FA42BF23362005EC753 /* SplashPage.storyboard */,
 				F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */,
 				F274332D2BF5F449009FC3F8 /* InputPage.storyboard */,
-				F27433332BF5F4EF009FC3F8 /* InputModal.storyboard */,
 				F27E0F892BECEBFD005EC753 /* MainPage.storyboard */,
 				F27433352BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard */,
 				F274333B2BF5F8A8009FC3F8 /* StatsPage.storyboard */,
@@ -112,7 +112,6 @@
 				F27E0FA22BF22F13005EC753 /* SplashPageController.swift */,
 				F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */,
 				F274332F2BF5F465009FC3F8 /* InputPageController.swift */,
-				F27433312BF5F4E1009FC3F8 /* InputModalController.swift */,
 				F27E0F872BECEBFD005EC753 /* MainPageController.swift */,
 				F27433372BF5F7FE009FC3F8 /* CreateDiaryPageController.swift */,
 				F274333D2BF5F8C0009FC3F8 /* StatsPageController.swift */,
@@ -154,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				F27E0F912BECEC01005EC753 /* LaunchScreen.storyboard */,
+				F27433332BF5F4EF009FC3F8 /* InputModal.storyboard */,
+				F27433312BF5F4E1009FC3F8 /* InputModalController.swift */,
 			);
 			path = dummy;
 			sourceTree = "<group>";
@@ -223,6 +224,7 @@
 				F27E0F932BECEC01005EC753 /* Base in Resources */,
 				F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */,
 				F27E0FA12BF20444005EC753 /* WelcomePage.storyboard in Resources */,
+				F20729E02BFCEF2C007A301B /* MainPage.storyboard in Resources */,
 				F274333C2BF5F8A8009FC3F8 /* StatsPage.storyboard in Resources */,
 				F27E0FA52BF23362005EC753 /* SplashPage.storyboard in Resources */,
 				F27E0F8B2BECEBFD005EC753 /* Base in Resources */,
