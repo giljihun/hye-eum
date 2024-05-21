@@ -42,6 +42,9 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     
     var savedQnA: [(question: String, answer: String)] = []
     
+    // 유저 성향
+    var alignment: String?
+    
     // 애니메이션
     let fadeDuration: TimeInterval = 1.5
     
@@ -53,8 +56,8 @@ class InputPageController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-           tap.cancelsTouchesInView = false
-           view.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         
         questionLabel.alpha = 0.0
         
@@ -118,7 +121,7 @@ class InputPageController: UIViewController, UITextFieldDelegate {
         }
         
         let question = questionLabel.text ?? ""
-        savedQnA.append((question: "Q. \(question)", answer: "A. \(answer)"))
+        savedQnA.append((question: question, answer: answer))
         
         inputTextField.text = ""
         
@@ -135,16 +138,76 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     
     // 5회 답변이 끝날때 나오는 메시지
     func displayFinalMessage() {
-        let finalMessage = "음..! 당신에 대해서 알아갈 수 있어서 좋아요! \n 추가적으로 몇가지만 더 물어볼게요!"
+        let finalMessage = "음..! 당신에 대해서 알아갈 수 있어서 좋아요! \n 당신의 답변을 바탕으로 닉네임을 만들어 볼게요...!"
         questionLabel.text = finalMessage
         UIView.animate(withDuration: fadeDuration) {
             self.questionLabel.alpha = 1.0
         }
         inputTextField.alpha = 0.0
         inputBtn.alpha = 0.0
-
+        
         print(savedQnA)
         
+        let requestBody = savedQnA.map { "Q : \($0.question) A : \($0.answer)" }.joined(separator: " ")
+        
+        print(requestBody)
+        // "잠시만 기다려주세요..." 메시지 표시
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.questionLabel.text = "잠시만 기다려주세요..."
+            self.generateNickname()
+        }
+    }
+    
+    func generateNickname() {
+        // POST 요청 보내기
+        let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/nickname")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let requestBody = savedQnA.map { "Q : \($0.question) A : \($0.answer)" }.joined(separator: " ")
+        let requestData = ["qna_string": requestBody]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: requestData)
+        
+        // 서버 연결 정보 출력
+        print("Request URL: \(url)")
+        print("Request Body: \(requestData)")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            // 서버 응답 출력
+            print("Server Response: \(String(describing: response))")
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            // 서버 응답 처리
+            if let jsonResult = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+               let alignmentValue = jsonResult["alignment"] as? String,
+               let nickname = jsonResult["nickname"] as? [String] {
+                self.alignment = alignmentValue
+                DispatchQueue.main.async {
+                    // 닉네임을 화면에 표시
+                    if let randomNickname = nickname.randomElement() {
+                        self.displayNickname(randomNickname)
+                    }
+                    print(nickname)
+                    print(self.alignment!)
+                    
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func displayNickname(_ nickname: String) {
+        questionLabel.text = "[\(nickname)] \n 위 닉네임은 어떤가요?"
     }
     
     // 키보드가 보여질 때 로직
