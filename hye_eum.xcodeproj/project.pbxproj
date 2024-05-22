@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F20729E02BFCEF2C007A301B /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F892BECEBFD005EC753 /* MainPage.storyboard */; };
+		F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20729E12BFDC4EF007A301B /* dummyCodes.swift */; };
 		F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274332D2BF5F449009FC3F8 /* InputPage.storyboard */; };
 		F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274332F2BF5F465009FC3F8 /* InputPageController.swift */; };
 		F27433322BF5F4E1009FC3F8 /* InputModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433312BF5F4E1009FC3F8 /* InputModalController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F20729E12BFDC4EF007A301B /* dummyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyCodes.swift; sourceTree = "<group>"; };
 		F274332D2BF5F449009FC3F8 /* InputPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputPage.storyboard; sourceTree = "<group>"; };
 		F274332F2BF5F465009FC3F8 /* InputPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPageController.swift; sourceTree = "<group>"; };
 		F27433312BF5F4E1009FC3F8 /* InputModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModalController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				F27E0F912BECEC01005EC753 /* LaunchScreen.storyboard */,
 				F27433332BF5F4EF009FC3F8 /* InputModal.storyboard */,
 				F27433312BF5F4E1009FC3F8 /* InputModalController.swift */,
+				F20729E12BFDC4EF007A301B /* dummyCodes.swift */,
 			);
 			path = dummy;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				F27E0F8E2BECEBFD005EC753 /* hye_eum.xcdatamodeld in Sources */,
 				F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */,
 				F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */,
+				F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */,
 				F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */,
 				F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */,
 			);

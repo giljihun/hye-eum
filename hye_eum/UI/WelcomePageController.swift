@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomePageController: UIViewController {
+class WelcomePageController: UIViewController, UIAdaptivePresentationControllerDelegate {
     
     @IBOutlet weak var openingMent: UILabel!
     @IBOutlet weak var welcome_nextBtn: UIButton!
@@ -30,6 +30,7 @@ class WelcomePageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("WelcomePageController instance created")
         welcome_nextBtn.alpha = 0.0
         logoTextOne.alpha = 0.0
         logoTextTwo.alpha = 0.0
@@ -37,6 +38,7 @@ class WelcomePageController: UIViewController {
         configureOpeningMentLabel()
         startMentAnimation()
     }
+    
     // 멘트 디자인
     private func configureOpeningMentLabel() {
         openingMent.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -57,11 +59,6 @@ class WelcomePageController: UIViewController {
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         //UserDefaults.standard.set(true, forKey: "isRegistered")
-        
-        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "InputPageController") else { return }
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC, animated: true)
-        
     }
     
     private func startMentAnimation() {
@@ -113,5 +110,7 @@ class WelcomePageController: UIViewController {
                 self.scheduleNextMent()
             })
         }
+        
     }
 }
+

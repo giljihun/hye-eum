@@ -58,8 +58,15 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     // 애니메이션
     let fadeDuration: TimeInterval = 1.5
     
+    var window: UIWindow?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 네비게이션 바 안보이게
+        self.navigationController?.navigationBar.isHidden = true
+        // 제스처로 뒤로가는 기능 삭제
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         // 키보드 나타남/사라짐을 감지하는 Notification 추가
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -267,12 +274,12 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     }
     
     // 선택된 날짜
-    
     @IBAction func birthPickerValueChanged(_ sender: UIDatePicker) {
         let selectedDate = sender.date
         print("Selected date: \(selectedDate)")
     }
     
+    // 유저 데이터 생성
     func createUser(nickname: String, birth: String) {
         // 최초접속 관련 설정
         // UserDefaults.standard.set(true, forKey: "isRegistered")
@@ -316,14 +323,6 @@ class InputPageController: UIViewController, UITextFieldDelegate {
                 print("User created successfully")
                 print("Response: \(jsonResult)")
                 
-                DispatchQueue.main.async {
-                    // 유저 생성 완료 후 메인 이동!!
-                    let storyboard = UIStoryboard(name: "MainPageController", bundle: nil)
-                    if let mainPageViewController = storyboard.instantiateInitialViewController() {
-                        mainPageViewController.modalPresentationStyle = .fullScreen
-                        self.present(mainPageViewController, animated: true, completion: nil)
-                    }
-                }
             }
         }
         task.resume()
@@ -340,14 +339,6 @@ class InputPageController: UIViewController, UITextFieldDelegate {
         
         
         // createUser(nickname: nickname, birth: birthDate)
-        
-        // !!!!! TEST CODE !!!!! 모달 -> 뷰이동으로 변경요망
-        let mainVC = UIStoryboard.init(name: "MainPage", bundle: nil)
-        guard let nextVC = mainVC.instantiateViewController(identifier: "MainPageController") as? MainPageController else {
-            return
-        }
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC, animated: true, completion: nil)
     }
     
     // 키보드가 보여질 때 로직

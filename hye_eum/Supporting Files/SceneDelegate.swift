@@ -29,21 +29,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let main_sb = UIStoryboard(name: "MainPage", bundle: nil)
             let welcome_sb = UIStoryboard(name: "WelcomePage", bundle: nil)
             
+            // 내비게이션 컨트롤러 생성
+            let navController = UINavigationController()
+            
             // 초기설정 완료 여부 확인
             let isRegistered = UserDefaults.standard.bool(forKey: "isRegistered")
             
             if isRegistered {
-                guard let mainVC = main_sb.instantiateViewController(withIdentifier: "MainPageController") as? MainPageController else
-                { return }
-                self.window?.rootViewController = mainVC
+                guard let mainVC = main_sb.instantiateViewController(withIdentifier: "MainPageController") as? MainPageController else { return }
+                navController.viewControllers = [mainVC]
             } else {
-                guard let welcomeVC = welcome_sb.instantiateViewController(withIdentifier: "WelcomePageController") as? WelcomePageController else
-                { return }
-                self.window?.rootViewController = welcomeVC
+                guard let welcomeVC = welcome_sb.instantiateViewController(withIdentifier: "WelcomePageController") as? WelcomePageController else { return }
+                navController.viewControllers = [welcomeVC]
             }
             
+            self.window?.rootViewController = navController
             self.window?.makeKeyAndVisible()
         }
+
         
         // << 단순 최초 실행만 판별하는 코드 >>
         //        if userDefaults.bool(forKey: "NotFirst") == false {
