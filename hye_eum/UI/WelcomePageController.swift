@@ -25,8 +25,8 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     var currentMentIndex = 0
     var mentTimer: Timer?
     // 애니메이션 간격 설정 -> 테스트 이후 2.3, 1.5로 변경 요망
-    let mentDuration: TimeInterval = 0.2
-    let fadeDuration: TimeInterval = 0.2
+    let mentDuration: TimeInterval = 2.0
+    let fadeDuration: TimeInterval = 1.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,7 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     }
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
-        //UserDefaults.standard.set(true, forKey: "isRegistered")
+        
     }
     
     private func startMentAnimation() {

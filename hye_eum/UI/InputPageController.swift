@@ -108,7 +108,7 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     // 질문 로직
     func presentQuestion() {
         // 기존 인덱스 -> 5
-        if questionIndex < 1 {
+        if questionIndex < 5 {
             let randomQuestion = getRandomQuestion()
             questionLabel.text = randomQuestion
             questionLabel.numberOfLines = 0
@@ -171,30 +171,10 @@ class InputPageController: UIViewController, UITextFieldDelegate {
         print(requestBody)
         // "잠시만 기다려주세요..." 메시지 표시
         
-        // !!!! TEST 하느라 주석처리 !!!!!
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//            self.questionLabel.text = "잠시만 기다려주세요..."
-//            self.generateNickname()
-//        }
-        // 닉네임 변경 필드, 생년월일 입력, 버튼 표시
-        nicknameTextField.alpha = 0.0
-        birthPicker.alpha = 0.0
-        nextBtn.alpha = 0.0
-        nickLabel.alpha = 0.0
-        birthLabel.alpha = 0.0
-        
-        nicknameTextField.isHidden = false
-        birthPicker.isHidden = false
-        nextBtn.isHidden = false
-        nickLabel.isHidden = false
-        birthLabel.isHidden = false
-        
-        UIView.animate(withDuration: fadeDuration) {
-            self.nicknameTextField.alpha = 1.0
-            self.birthPicker.alpha = 1.0
-            self.nextBtn.alpha = 1.0
-            self.nickLabel.alpha = 1.0
-            self.birthLabel.alpha = 1.0
+        // !!!! TEST !!!!
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.questionLabel.text = "잠시만 기다려주세요..."
+            self.generateNickname()
         }
     }
     
@@ -337,8 +317,8 @@ class InputPageController: UIViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let birthDate = dateFormatter.string(from: birthPicker.date)
         
-        
-        // createUser(nickname: nickname, birth: birthDate)
+        UserDefaults.standard.set(true, forKey: "isRegistered")
+        createUser(nickname: nickname, birth: birthDate)
     }
     
     // 키보드가 보여질 때 로직
