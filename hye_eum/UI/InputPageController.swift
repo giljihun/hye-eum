@@ -313,6 +313,7 @@ class InputPageController: UIViewController, UITextFieldDelegate {
                 print("User created successfully")
                 print("Response: \(jsonResult)")
                 
+                // 유저태그 저장!
                 if let userTag = jsonResult["user_tag"] as? Int {
                     UserDefaults.standard.set(userTag, forKey: "user_tag")
                 }

@@ -18,7 +18,7 @@ class OptionPageController: UIViewController {
     @IBOutlet weak var politeLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var editBtn: UIButton!
-    
+
     // MARK: - UI Input Field
     @IBOutlet weak var nameField: UITextField!
     
@@ -34,6 +34,9 @@ class OptionPageController: UIViewController {
     // MARK: - Property
     var isEnabled = false
     var currentNickName = ""
+    var currentPolite: Bool = false
+    var currentBirth: Date = Date()
+    let savedUserTag = UserDefaults.standard.integer(forKey: "user_tag")
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -80,12 +83,107 @@ class OptionPageController: UIViewController {
             self.sponsoredLabel.translatesAutoresizingMaskIntoConstraints = true
             self.developedLabel.translatesAutoresizingMaskIntoConstraints = true
         }
+        infoCalling()
     }
     
     
-    // MARK: - 유저정보 변경 메서드
-    func infoChanging() {
+    // MARK: - 유저정보 호출 메서드
+    func infoCalling() {
+        print("calling!")
+        guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/users/\(savedUserTag)") else {
+            print("Invalid URL")
+            return
+        }
         
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let error = error {
+            print("Error: \(error.localizedDescription)")
+            return
+        }
+        
+        guard let data = data else {
+            print("No data received")
+            return
+        }
+        
+        do {
+            if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                DispatchQueue.main.async {
+                    if let userName = jsonResult["user_name"] as? String {
+                        self.nameField.text = userName
+                        self.currentNickName = userName
+                        print(userName)
+                    }
+                    
+                    if let birthString = jsonResult["birth"] as? String {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd"
+                        if let birthDate = dateFormatter.date(from: birthString) {
+                            self.birthDatePicker.date = birthDate
+                            self.currentBirth = birthDate
+                        }
+                        
+                        print(birthString)
+                    }
+                    
+                    if let isPolite = jsonResult["polite"] as? Bool {
+                        self.politeToggle.isOn = isPolite
+                        self.currentPolite = isPolite
+                        print(isPolite)
+                    }
+                }
+            }
+        } catch {
+            print("Error parsing JSON: \(error.localizedDescription)")
+        }
+    }
+    task.resume()
+}
+
+    // MARK: - 유저정보 변경 메서드
+    func infoEditing() {
+        print("editing!")
+        
+        print(currentBirth, currentPolite, currentNickName)
+        guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/users/\(savedUserTag)") else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let updatedUserNames = currentNickName
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let birthDateString = dateFormatter.string(from: currentBirth)
+        
+        let requestBody: [String: Any] = [
+            "user_name": updatedUserNames,
+            "birth": birthDateString,
+            "polite": currentPolite
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+            request.httpBody = jsonData
+        } catch {
+            print("Error creating JSON: \(error.localizedDescription)")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            // Handle the response if needed
+            print("User info updated successfully")
+        }
+        
+        task.resume()
     }
     
     // MARK: - 애니메이션 메서드
@@ -125,14 +223,7 @@ class OptionPageController: UIViewController {
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.autocorrectionType = .no
         tf.font = UIFont.systemFont(ofSize: 16.0)
-        
-        
-        if let userName = UserDefaults.standard.string(forKey: "user_name") {
-            tf.text = userName
-            print("User Name: \(userName)")
-        } else {
-            print("User Name이 존재하지 않습니다.")
-        }
+    
     }
     
     // MARK: - Name Edit 메서드
@@ -143,28 +234,48 @@ class OptionPageController: UIViewController {
         politeToggle.isEnabled = isEnabled
         birthDatePicker.isEnabled = isEnabled
         
-        if isEnabled {
-            nameField.textColor = UIColor.black
-            nameBtn.setBackgroundImage(UIImage(systemName: "checkmark"), for: .normal)
-            nameBtn.imageView?.contentMode = .scaleAspectFit
-            
-            politeToggle.onTintColor = UIColor.tintColor
-            birthDatePicker.tintColor = UIColor.black
-            
-        } else {
-            nameField.textColor = UIColor.gray
-            nameBtn.setBackgroundImage(UIImage(systemName: "pencil.and.outline"), for: .normal)
-            nameBtn.imageView?.contentMode = .scaleAspectFit
-            
-            politeToggle.onTintColor = UIColor.gray
-            birthDatePicker.tintColor = UIColor.gray
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
+            if self.isEnabled {
+                self.nameField.textColor = UIColor.black
+                self.nameBtn.setBackgroundImage(UIImage(systemName: "checkmark"), for: .normal)
+                self.nameBtn.imageView?.contentMode = .scaleAspectFit
+                self.nameBtn.tintColor = .black
+                self.politeToggle.onTintColor = UIColor.tintColor
+                self.birthDatePicker.tintColor = UIColor.black
+            } else {
+                self.nameField.textColor = UIColor.gray
+                self.nameBtn.setBackgroundImage(UIImage(systemName: "pencil.and.outline"), for: .normal)
+                self.nameBtn.imageView?.contentMode = .scaleAspectFit
+                self.nameBtn.tintColor = .gray
+                self.politeToggle.onTintColor = UIColor.gray
+                self.birthDatePicker.tintColor = UIColor.gray
+            }
+        }, completion: nil)
+        // 변경 사항이 있는지 확인
+        var isChanged = false
+        
+        if let currentName = self.nameField.text, currentName != self.currentNickName {
+            print(currentName)
+            self.currentNickName = currentName
+            isChanged = true
         }
         
-        // 입력된 텍스트를 저장해두기
-        if let currentName = nameField.text {
-            currentNickName = currentName
+        if self.politeToggle.isOn != self.currentPolite {
+            print(self.politeToggle.isOn)
+            self.currentPolite = self.politeToggle.isOn
+            isChanged = true
         }
         
+        if self.birthDatePicker.date != self.currentBirth {
+            print(self.birthDatePicker.date)
+            self.currentBirth = self.birthDatePicker.date
+            isChanged = true
+        }
+        
+        // 변경 사항이 있으면 PATCH 요청 보내기
+        if isChanged {
+            self.infoEditing()
+        }
     }
     // MARK: - Polite Switch 메서드
     private func ptConfig() {
