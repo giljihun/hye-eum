@@ -64,7 +64,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="96N-xk-edf"/>
                     <connections>
+                        <outlet property="booksView" destination="0oX-yo-kcA" id="7Ef-VX-auU"/>
                         <outlet property="myCollectionView" destination="0oX-yo-kcA" id="e8b-fw-mmV"/>
+                        <outlet property="optionBtn" destination="BgD-WR-N1Z" id="eL0-Xs-yrs"/>
+                        <outlet property="titleLabel" destination="ODa-9W-erw" id="EqU-Yp-xl0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

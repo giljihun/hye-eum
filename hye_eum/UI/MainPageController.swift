@@ -8,6 +8,11 @@
 import UIKit
 
 class MainPageController: UIViewController {
+    // MARK: - UI outlets
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var optionBtn: UIButton!
+    @IBOutlet weak var booksView: UICollectionView!
     
     // MARK: - UI Property
     
@@ -108,11 +113,16 @@ class MainPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        titleLabel.alpha = 0.0
+        optionBtn.alpha = 0.0
+        booksView.alpha = 0.0
         
         self.myCollectionView.dataSource = self
         self.myCollectionView.delegate = self
         
         self.myCollectionViewInit()
+        
+        startAnimation()
     }
     
     override func viewDidLayoutSubviews() {
@@ -125,10 +135,25 @@ class MainPageController: UIViewController {
     // MARK: - UI 설정
     
     private func setUI() {
+        view.alpha = 0.0
         view.backgroundColor = .systemBackground
         view.addSubview(floatingButton)
         view.addSubview(createButton)
         view.addSubview(statButton)
+        
+        
+    }
+    // MARK: - 애니메이션 메서드
+    let fadeDuration: TimeInterval = 1.0
+    
+    private func startAnimation() {
+        
+        UIView.animate(withDuration: fadeDuration) {
+            self.view.alpha = 1.0
+            self.titleLabel.alpha = 1.0
+            self.optionBtn.alpha = 1.0
+            self.booksView.alpha = 1.0
+        }
     }
 
     

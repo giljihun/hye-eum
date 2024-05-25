@@ -37,7 +37,7 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="arrowshape.up.circle" catalog="system" symbolScale="large" variableValue="0.80000000000000004"/>
+                                    <imageReference key="image" image="arrow.up.square.fill" catalog="system" symbolScale="large" variableValue="0.80000000000000004"/>
                                     <backgroundConfiguration key="background"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -180,7 +180,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.up.circle" catalog="system" width="128" height="123"/>
+        <image name="arrow.up.square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

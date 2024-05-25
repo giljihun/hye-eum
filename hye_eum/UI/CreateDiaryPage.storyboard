@@ -16,16 +16,82 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문들..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-56-ujU">
+                                <rect key="frame" x="20" y="129" width="353" height="296"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="296" id="JZd-4u-Iu3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drU-8w-dME">
+                                <rect key="frame" x="333" y="686" width="49" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.up.square.fill" catalog="system">
+                                    <backgroundConfiguration key="background"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZb-w9-Poj">
+                                <rect key="frame" x="152.66666666666666" y="777" width="88" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="대화 종료"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7O-qn-WuM">
+                                <rect key="frame" x="20" y="440" width="353" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="KVk-Xd-9cm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CS1-XM-4gM">
+                                <rect key="frame" x="37" y="684" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="PDc-pe-TxJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="Z2j-OI-KhC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F7O-qn-WuM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="3N1-iO-CRZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="drU-8w-dME" secondAttribute="trailing" constant="11" id="4k6-fd-Mdb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="drU-8w-dME" secondAttribute="bottom" constant="97" id="6dw-Du-qKv"/>
+                            <constraint firstItem="1cN-56-ujU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="96j-uw-VoH"/>
+                            <constraint firstItem="F7O-qn-WuM" firstAttribute="top" secondItem="1cN-56-ujU" secondAttribute="bottom" constant="15" id="O3r-3G-bWx"/>
+                            <constraint firstItem="yZb-w9-Poj" firstAttribute="top" secondItem="CS1-XM-4gM" secondAttribute="bottom" constant="53" id="TGi-UQ-yYg"/>
+                            <constraint firstItem="F7O-qn-WuM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XqW-FN-gef"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1cN-56-ujU" secondAttribute="trailing" constant="20" id="aAI-oY-FC8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F7O-qn-WuM" secondAttribute="trailing" constant="20" id="eb9-Q6-5wU"/>
+                            <constraint firstItem="1cN-56-ujU" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="mDk-g6-g9E"/>
+                            <constraint firstItem="1cN-56-ujU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="n1v-3r-NAk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CS1-XM-4gM" secondAttribute="trailing" constant="56" id="ne4-br-AF3"/>
+                            <constraint firstItem="yZb-w9-Poj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="s9W-di-ZjQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yZb-w9-Poj" secondAttribute="bottom" constant="6" id="t1c-gh-13t"/>
+                            <constraint firstItem="CS1-XM-4gM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="37" id="uhF-zj-9Es"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="comChatLabel" destination="1cN-56-ujU" id="S3A-1j-Ro0"/>
+                        <outlet property="doneChatBtn" destination="yZb-w9-Poj" id="hm9-n0-kNU"/>
+                        <outlet property="enterChatBtn" destination="drU-8w-dME" id="ook-gL-FKO"/>
+                        <outlet property="myChatLabel" destination="F7O-qn-WuM" id="uvP-nJ-pGR"/>
+                        <outlet property="myTextField" destination="CS1-XM-4gM" id="tYW-5Y-AcZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-2"/>
+            <point key="canvasLocation" x="74.045801526717554" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

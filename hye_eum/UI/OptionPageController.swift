@@ -25,7 +25,7 @@ class OptionPageController: UIViewController {
     // MARK: - UI Button
     @IBOutlet weak var nameBtn: UIButton!
     
-    // MARK: - UI Switche
+    // MARK: - UI Switch
     @IBOutlet weak var politeToggle: UISwitch!
     
     // MARK: - UI DatePicker
