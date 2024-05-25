@@ -59,6 +59,8 @@ class OptionPageController: UIViewController {
         
         tfConfig(tf: nameField)
         nameField.isEnabled = false
+        politeToggle.isEnabled = false
+        birthDatePicker.isEnabled = false
         nameField.textColor = UIColor.lightGray
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
