@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCollectionViewCell" id="gTV-IL-0wX" customClass="MyCollectionViewCell" customModule="hye_eum" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="450"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="280" height="450"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbh-jF-m2x">
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="450"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="280" id="KQn-01-HRG"/>
+                            <constraint firstAttribute="height" constant="450" id="ih9-5K-lpD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="lbh-jF-m2x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2i8-4g-0FF"/>
+                <constraint firstItem="lbh-jF-m2x" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="7Vn-Km-G50"/>
+                <constraint firstAttribute="bottom" secondItem="lbh-jF-m2x" secondAttribute="bottom" id="JMv-u4-Ak8"/>
+                <constraint firstItem="lbh-jF-m2x" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dGX-hl-39I"/>
+                <constraint firstAttribute="trailing" secondItem="lbh-jF-m2x" secondAttribute="trailing" id="pTx-yN-Ict"/>
+                <constraint firstItem="lbh-jF-m2x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="x4P-sb-5EL"/>
+            </constraints>
+            <size key="customSize" width="615" height="389"/>
+            <point key="canvasLocation" x="54" y="69"/>
+        </collectionViewCell>
+    </objects>
+</document>

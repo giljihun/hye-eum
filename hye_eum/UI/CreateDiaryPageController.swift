@@ -13,6 +13,7 @@ class CreateDiaryPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "Create Diary"
     }
 
     

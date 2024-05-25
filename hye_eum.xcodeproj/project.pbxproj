@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F20729E02BFCEF2C007A301B /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F892BECEBFD005EC753 /* MainPage.storyboard */; };
 		F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20729E12BFDC4EF007A301B /* dummyCodes.swift */; };
+		F211F1622C01ED06004F40B4 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F211F1602C01ED06004F40B4 /* MyCollectionViewCell.swift */; };
+		F211F1632C01ED06004F40B4 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F211F1612C01ED06004F40B4 /* MyCollectionViewCell.xib */; };
 		F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274332D2BF5F449009FC3F8 /* InputPage.storyboard */; };
 		F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274332F2BF5F465009FC3F8 /* InputPageController.swift */; };
 		F27433322BF5F4E1009FC3F8 /* InputModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433312BF5F4E1009FC3F8 /* InputModalController.swift */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		F20729E12BFDC4EF007A301B /* dummyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyCodes.swift; sourceTree = "<group>"; };
+		F211F1602C01ED06004F40B4 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		F211F1612C01ED06004F40B4 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		F274332D2BF5F449009FC3F8 /* InputPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputPage.storyboard; sourceTree = "<group>"; };
 		F274332F2BF5F465009FC3F8 /* InputPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPageController.swift; sourceTree = "<group>"; };
 		F27433312BF5F4E1009FC3F8 /* InputModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModalController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F211F1592C01EB60004F40B4 /* MyCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F211F1602C01ED06004F40B4 /* MyCollectionViewCell.swift */,
+				F211F1612C01ED06004F40B4 /* MyCollectionViewCell.xib */,
+			);
+			path = MyCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		F27E0F772BECEBFD005EC753 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +117,7 @@
 		F27E0F9A2BF1F0DF005EC753 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F211F1592C01EB60004F40B4 /* MyCollectionViewCell */,
 				F27E0FA42BF23362005EC753 /* SplashPage.storyboard */,
 				F27E0FA02BF20444005EC753 /* WelcomePage.storyboard */,
 				F274332D2BF5F449009FC3F8 /* InputPage.storyboard */,
@@ -228,6 +242,7 @@
 				F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */,
 				F27E0FA12BF20444005EC753 /* WelcomePage.storyboard in Resources */,
 				F20729E02BFCEF2C007A301B /* MainPage.storyboard in Resources */,
+				F211F1632C01ED06004F40B4 /* MyCollectionViewCell.xib in Resources */,
 				F274333C2BF5F8A8009FC3F8 /* StatsPage.storyboard in Resources */,
 				F27E0FA52BF23362005EC753 /* SplashPage.storyboard in Resources */,
 				F27E0F8B2BECEBFD005EC753 /* Base in Resources */,
@@ -254,6 +269,7 @@
 				F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */,
 				F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */,
 				F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */,
+				F211F1622C01ED06004F40B4 /* MyCollectionViewCell.swift in Sources */,
 				F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
