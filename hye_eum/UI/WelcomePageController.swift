@@ -9,25 +9,27 @@ import UIKit
 
 class WelcomePageController: UIViewController, UIAdaptivePresentationControllerDelegate {
     
+    // MARK: - UI Label
     @IBOutlet weak var openingMent: UILabel!
-    @IBOutlet weak var welcome_nextBtn: UIButton!
-    
     @IBOutlet weak var logoTextOne: UILabel!
     @IBOutlet weak var logoTextTwo: UILabel!
     @IBOutlet weak var devByLogo: UILabel!
     
+    // MARK: - UI Button
+    @IBOutlet weak var welcome_nextBtn: UIButton!
+    
+    // MARK: - Property
     let openingMents : [String] = [
         "오늘 하루는 어땠나요?",
         "오늘 당신에게는 어떤 일들이 있었나요?",
         "당신의 이야기를 저에게 들려주세요."
     ]
-    
     var currentMentIndex = 0
     var mentTimer: Timer?
-    // 애니메이션 간격 설정 -> 테스트 이후 2.3, 1.5로 변경 요망
     let mentDuration: TimeInterval = 2.0
     let fadeDuration: TimeInterval = 1.3
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print("WelcomePageController instance created")
@@ -39,28 +41,25 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
         startMentAnimation()
     }
     
-    // 멘트 디자인
+    // MARK: - Methods
+    
+    // Configure the openingMent label
     private func configureOpeningMentLabel() {
         openingMent.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         openingMent.textColor = .darkGray
-        
-        openingMent.numberOfLines = 0 // 여러 줄 표시 허용
+        openingMent.numberOfLines = 0
         openingMent.lineBreakMode = .byWordWrapping
-        
         
         let attributedString = NSMutableAttributedString(string: openingMent.text ?? "")
         attributedString.addAttribute(.kern, value: 1.2, range: NSRange(location: 0, length: attributedString.length))
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 5.0 // 줄 간격 조정
+        paragraphStyle.lineSpacing = 5.0
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
         openingMent.attributedText = attributedString
         openingMent.textAlignment = .center
     }
     
-    @IBAction func registerButtonTapped(_ sender: UIButton) {
-        
-    }
-    
+    // Start the animation for the openingMent label
     private func startMentAnimation() {
         openingMent.text = openingMents[currentMentIndex]
         openingMent.alpha = 0.0
@@ -74,6 +73,7 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
         }
     }
     
+    // Schedule the next ment
     private func scheduleNextMent() {
         mentTimer?.invalidate()
         mentTimer = Timer.scheduledTimer(withTimeInterval: mentDuration, repeats: false, block: { _ in
@@ -81,16 +81,17 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
         })
     }
     
+    // Change the ment
     private func changeMent() {
         UIView.animate(withDuration: fadeDuration) {
             self.openingMent.alpha = 0.0
         } completion: { _ in
             self.currentMentIndex = (self.currentMentIndex + 1) % self.openingMents.count
-
+            
             if self.currentMentIndex == 0 {
                 self.mentTimer?.invalidate()
                 self.mentTimer = nil
-
+                
                 // 마무리 멘트!
                 self.openingMent.text = "그 전에, 당신에 대해 몇가지 물어볼게요. \n\n 아래 버튼을 눌러주세요."
                 UIView.animate(withDuration: self.fadeDuration) {
@@ -102,7 +103,7 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
                 }
                 return
             }
-
+            
             self.openingMent.text = self.openingMents[self.currentMentIndex]
             UIView.animate(withDuration: self.fadeDuration, animations: {
                 self.openingMent.alpha = 1.0
@@ -112,5 +113,6 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
         }
         
     }
+    @IBAction func nextBtnTapped(_ sender: UIButton) {
+    }
 }
-

@@ -33,8 +33,8 @@
                                 <rect key="frame" x="169.66666666666666" y="498.99999999999994" width="53.666666666666657" height="34.333333333333314"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="다음"/>
                                 <connections>
-                                    <action selector="registerButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fzQ-8g-uhr"/>
-                                    <segue destination="PnX-6F-phR" kind="push" id="2j5-dI-RWd"/>
+                                    <action selector="nextBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QFG-z8-MeM"/>
+                                    <segue destination="PnX-6F-phR" kind="push" id="BA1-gm-vaP"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oSI-KO-Gnn">

@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             let main_sb = UIStoryboard(name: "MainPage", bundle: nil)
-            let welcome_sb = UIStoryboard(name: "WelcomePage", bundle: nil)
+            let welcome_sb = UIStoryboard(name: "WelcomePage", bundle: nil) // !!!!  MainPage -> WelcomePage !!!!
             
             // 내비게이션 컨트롤러 생성
             let navController = UINavigationController()
@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if isRegistered {
                 guard let mainVC = main_sb.instantiateViewController(withIdentifier: "MainPageController") as? MainPageController else { return }
                 navController.viewControllers = [mainVC]
-            } else {
+            } else { // !!!! MainPage -> WelcomePage !!!!
                 guard let welcomeVC = welcome_sb.instantiateViewController(withIdentifier: "WelcomePageController") as? WelcomePageController else { return }
                 navController.viewControllers = [welcomeVC]
             }

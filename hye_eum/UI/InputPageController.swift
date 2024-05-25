@@ -5,21 +5,30 @@
 //  Created by mobicom on 5/16/24.
 //
 
+// MARK: - 코드 정리 필요
+
 import UIKit
 
 class InputPageController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var inputTextField: UITextField!
+    // MARK: - UI Label
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var inputBtn: UIButton!
-    
-    @IBOutlet weak var nicknameTextField: UITextField!
-    @IBOutlet weak var birthPicker: UIDatePicker!
-    @IBOutlet weak var nextBtn: UIButton!
-    
     @IBOutlet weak var nickLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
     
+    // MARK: - UI TextField
+    @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var nicknameTextField: UITextField!
+    
+    // MARK: - UI Button
+    @IBOutlet weak var inputBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
+    
+    // MARK: - UI DatePicker
+    @IBOutlet weak var birthPicker: UIDatePicker!
+    
+    
+    // MARK: - Property
     // 질문, 질문 : 답변 저장 배열
     let questions: [String] = [
         "만약 당신의 성격이 음식이라면, 그 음식은 무엇일까요?",
@@ -60,6 +69,7 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     
     var window: UIWindow?
     
+    // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -303,6 +313,15 @@ class InputPageController: UIViewController, UITextFieldDelegate {
                 print("User created successfully")
                 print("Response: \(jsonResult)")
                 
+                if let userTag = jsonResult["user_tag"] as? Int {
+                    UserDefaults.standard.set(userTag, forKey: "user_tag")
+                }
+                if let userName = jsonResult["user_name"] as? String {
+                    UserDefaults.standard.set(userName, forKey: "user_name")
+                }
+                if let userPolite = jsonResult["polite"] as? Bool {
+                    UserDefaults.standard.set(userPolite, forKey: "user_polite")
+                }
             }
         }
         task.resume()
