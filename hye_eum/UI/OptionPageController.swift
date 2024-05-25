@@ -17,6 +17,7 @@ class OptionPageController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var politeLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
+    @IBOutlet weak var editBtn: UIButton!
     
     // MARK: - UI Input Field
     @IBOutlet weak var nameField: UITextField!
@@ -31,7 +32,7 @@ class OptionPageController: UIViewController {
     @IBOutlet weak var birthDatePicker: UIDatePicker!
     
     // MARK: - Property
-    var isTextFieldEnabled = false
+    var isEnabled = false
     var currentNickName = ""
     
     // MARK: - View LifeCycle
@@ -49,6 +50,8 @@ class OptionPageController: UIViewController {
         self.politeToggle.alpha = 0.0
         self.birthLabel.alpha = 0.0
         self.birthDatePicker.alpha = 0.0
+        self.editBtn.alpha = 0.0
+        self.nameBtn.imageView?.contentMode = .scaleAspectFit
         
         
         tfConfig(tf: nameField)
@@ -70,6 +73,7 @@ class OptionPageController: UIViewController {
                 self.politeToggle.alpha = 1.0
                 self.birthLabel.alpha = 1.0
                 self.birthDatePicker.alpha = 1.0
+                self.editBtn.alpha = 1.0
             }
             self.titleLabel.translatesAutoresizingMaskIntoConstraints = true
             self.poweredLabel.translatesAutoresizingMaskIntoConstraints = true
@@ -133,16 +137,27 @@ class OptionPageController: UIViewController {
     
     // MARK: - Name Edit 메서드
     @IBAction func editBtnTapped(_ sender: UIButton) {
-        isTextFieldEnabled.toggle()
+        isEnabled.toggle()
         
-        nameField.isEnabled = isTextFieldEnabled
+        nameField.isEnabled = isEnabled
+        politeToggle.isEnabled = isEnabled
+        birthDatePicker.isEnabled = isEnabled
         
-        if isTextFieldEnabled {
+        if isEnabled {
             nameField.textColor = UIColor.black
-            nameBtn.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+            nameBtn.setBackgroundImage(UIImage(systemName: "checkmark"), for: .normal)
+            nameBtn.imageView?.contentMode = .scaleAspectFit
+            
+            politeToggle.onTintColor = UIColor.tintColor
+            birthDatePicker.tintColor = UIColor.black
+            
         } else {
             nameField.textColor = UIColor.gray
-            nameBtn.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+            nameBtn.setBackgroundImage(UIImage(systemName: "pencil.and.outline"), for: .normal)
+            nameBtn.imageView?.contentMode = .scaleAspectFit
+            
+            politeToggle.onTintColor = UIColor.gray
+            birthDatePicker.tintColor = UIColor.gray
         }
         
         // 입력된 텍스트를 저장해두기
