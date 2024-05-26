@@ -42,6 +42,11 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
         // PickerView 설정
         pickerView.delegate = self
         pickerView.dataSource = self
+    
+        // PickerView의 초기 선택 항목 설정
+        pickerView.selectRow(0, inComponent: 0, animated: false)
+        selectedEmotion = emotion
+        
         // commentTextView 설정
         commentTextView.layer.borderWidth = 1.0
         commentTextView.layer.borderColor = UIColor.lightGray.cgColor

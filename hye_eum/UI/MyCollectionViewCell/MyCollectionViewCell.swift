@@ -12,6 +12,10 @@ class MyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        contentView.layer.cornerRadius = 16.0
+        contentView.layer.masksToBounds = true
+    
     }
 
 }
