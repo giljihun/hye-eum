@@ -65,15 +65,28 @@ class CreateDiaryPageController: UIViewController {
             return
         }
         
-        // 최초 질문과 사용자 답변을 qnaString으로 생성
-        let qnaString = "Q : \(initialQuestion) A : \(userAnswer)"
+        // 최초 질문인 경우
+        if questionArray.isEmpty {
+            let qnaString = "Q : \(initialQuestion) A : \(userAnswer)"
+            questionArray.append(qnaString)
+            
+        } else {
+            // 이전 답변과 새로운 질문으로 qnaString 생성
+            var newQnA = ""
+            let lastQnA = comChatLabel.text
+
+            newQnA = "Q : \(lastQnA!) A : \(userAnswer)"
+
+            // 배열에 저장
+            if !newQnA.isEmpty {
+                questionArray.append(newQnA)
+            }
+        }
         
-        // 배열에 저장
-        questionArray.append(qnaString)
         print("저장된질문배열! : ", questionArray)
         
         // POST 요청
-        sendPostRequest(qnaString: qnaString)
+        sendPostRequest(qnaString: questionArray.last ?? "")
     }
     
     func sendPostRequest(qnaString: String) {
@@ -132,12 +145,8 @@ class CreateDiaryPageController: UIViewController {
                    let newQuestion = jsonResponse["question"] as? String {
                     DispatchQueue.main.async {
                         // "Q:"를 제거
-                        print(newQuestion)
                         let cleanedQuestion = String(newQuestion.dropFirst(3))
 
-                        print("New question: \(cleanedQuestion)")
-                        
-                        
                         UIView.animate(withDuration: self.fadeDuration) {
                             
                             self.comChatLabel.alpha = 1.0
