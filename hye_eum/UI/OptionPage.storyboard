@@ -30,10 +30,9 @@
                                     <constraint firstAttribute="height" constant="40" id="Mxs-zw-97U"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="ㅇㄴㅁㅇㅁㄴ">
+                                    <fragment content="no data here bruh!">
                                         <attributes>
                                             <font key="NSFont" metaFont="smallSystem"/>
-                                            <font key="NSOriginalFont" metaFont="smallSystem"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

@@ -11,6 +11,8 @@
 		F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20729E12BFDC4EF007A301B /* dummyCodes.swift */; };
 		F211F1622C01ED06004F40B4 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F211F1602C01ED06004F40B4 /* MyCollectionViewCell.swift */; };
 		F211F1632C01ED06004F40B4 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F211F1612C01ED06004F40B4 /* MyCollectionViewCell.xib */; };
+		F211F1652C034C5F004F40B4 /* CreateCommentPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F211F1642C034C5F004F40B4 /* CreateCommentPage.storyboard */; };
+		F211F1672C034C74004F40B4 /* CreateCommentPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F211F1662C034C74004F40B4 /* CreateCommentPageController.swift */; };
 		F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274332D2BF5F449009FC3F8 /* InputPage.storyboard */; };
 		F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274332F2BF5F465009FC3F8 /* InputPageController.swift */; };
 		F27433322BF5F4E1009FC3F8 /* InputModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433312BF5F4E1009FC3F8 /* InputModalController.swift */; };
@@ -40,6 +42,8 @@
 		F20729E12BFDC4EF007A301B /* dummyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyCodes.swift; sourceTree = "<group>"; };
 		F211F1602C01ED06004F40B4 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F211F1612C01ED06004F40B4 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		F211F1642C034C5F004F40B4 /* CreateCommentPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateCommentPage.storyboard; sourceTree = "<group>"; };
+		F211F1662C034C74004F40B4 /* CreateCommentPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommentPageController.swift; sourceTree = "<group>"; };
 		F274332D2BF5F449009FC3F8 /* InputPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputPage.storyboard; sourceTree = "<group>"; };
 		F274332F2BF5F465009FC3F8 /* InputPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPageController.swift; sourceTree = "<group>"; };
 		F27433312BF5F4E1009FC3F8 /* InputModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModalController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				F274332D2BF5F449009FC3F8 /* InputPage.storyboard */,
 				F27E0F892BECEBFD005EC753 /* MainPage.storyboard */,
 				F27433352BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard */,
+				F211F1642C034C5F004F40B4 /* CreateCommentPage.storyboard */,
 				F274333B2BF5F8A8009FC3F8 /* StatsPage.storyboard */,
 				F274333F2BF5F902009FC3F8 /* OptionPage.storyboard */,
 				F27E0FA22BF22F13005EC753 /* SplashPageController.swift */,
@@ -130,6 +135,7 @@
 				F274332F2BF5F465009FC3F8 /* InputPageController.swift */,
 				F27E0F872BECEBFD005EC753 /* MainPageController.swift */,
 				F27433372BF5F7FE009FC3F8 /* CreateDiaryPageController.swift */,
+				F211F1662C034C74004F40B4 /* CreateCommentPageController.swift */,
 				F274333D2BF5F8C0009FC3F8 /* StatsPageController.swift */,
 				F27433412BF5F912009FC3F8 /* OptionPageController.swift */,
 			);
@@ -237,6 +243,7 @@
 				F27E0FAA2BF23C5F005EC753 /* KCC-Sonkeechung.otf in Resources */,
 				F27433342BF5F4EF009FC3F8 /* InputModal.storyboard in Resources */,
 				F27433402BF5F902009FC3F8 /* OptionPage.storyboard in Resources */,
+				F211F1652C034C5F004F40B4 /* CreateCommentPage.storyboard in Resources */,
 				F27E0F9D2BF1F7C6005EC753 /* Assets.xcassets in Resources */,
 				F27E0F932BECEC01005EC753 /* Base in Resources */,
 				F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */,
@@ -264,6 +271,7 @@
 				F27E0F9F2BF20368005EC753 /* WelcomePageController.swift in Sources */,
 				F27433422BF5F912009FC3F8 /* OptionPageController.swift in Sources */,
 				F274333E2BF5F8C0009FC3F8 /* StatsPageController.swift in Sources */,
+				F211F1672C034C74004F40B4 /* CreateCommentPageController.swift in Sources */,
 				F27E0F8E2BECEBFD005EC753 /* hye_eum.xcdatamodeld in Sources */,
 				F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */,
 				F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */,

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문들..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-56-ujU">
-                                <rect key="frame" x="20" y="309" width="353" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="353" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="previous Q&amp;A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7O-qn-WuM">
-                                <rect key="frame" x="144" y="399.33333333333331" width="105" height="21"/>
+                                <rect key="frame" x="144" y="443.33333333333331" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -75,6 +75,7 @@
                             <constraint firstItem="CS1-XM-4gM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="37" id="uhF-zj-9Es"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="l60-pj-aF7"/>
                     <connections>
                         <outlet property="comChatLabel" destination="1cN-56-ujU" id="S3A-1j-Ro0"/>
                         <outlet property="doneChatBtn" destination="yZb-w9-Poj" id="hm9-n0-kNU"/>
@@ -84,6 +85,34 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000.763358778626" y="-2.1126760563380285"/>
+        </scene>
+        <!--CreateCommentPageController-->
+        <scene sceneID="rHF-0w-I6y">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CreateCommentPageController" storyboardName="CreateCommentPage" referencedIdentifier="CreateCommentPageController" id="QKa-Sv-eIb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Bce-je-3I7"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="16N-Nx-aGJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1605.3435114503816" y="203.52112676056339"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="anV-UG-zZE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F2E-az-15S" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3iV-4Y-gz5">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="gHH-ev-xpK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fj-wP-guK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74.045801526717554" y="-2.1126760563380285"/>
         </scene>

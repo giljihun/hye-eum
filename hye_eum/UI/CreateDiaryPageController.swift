@@ -132,7 +132,8 @@ class CreateDiaryPageController: UIViewController {
                    let newQuestion = jsonResponse["question"] as? String {
                     DispatchQueue.main.async {
                         // "Q:"를 제거
-                        let cleanedQuestion = String(newQuestion.dropFirst(4))
+                        print(newQuestion)
+                        let cleanedQuestion = String(newQuestion.dropFirst(3))
 
                         print("New question: \(cleanedQuestion)")
                         
@@ -174,62 +175,132 @@ class CreateDiaryPageController: UIViewController {
             savedQA += "\(item) "
         }
         print(savedQA)
-        
+
         // 감정 생성
+        let emotionAlertController = UIAlertController(title: "감정 분석중", message: "당신의 감정을 분석 중입니다. \n 잠시만 기다려주세요.", preferredStyle: .alert)
+        present(emotionAlertController, animated: true, completion: nil)
+
         guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/emotion-generation") else {
             print("Invalid URL")
             return
         }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         let requestBody: [String: String] = [
             "qna_string": savedQA,
-            "alignment" : alignment
+            "alignment": alignment
         ]
-        
+
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
         } catch let error {
             print("Error serializing JSON: \(error)")
             return
         }
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error: \(error)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                return
-            }
-            
-            do {
-                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    if let get_emotion = jsonResponse["emotion"] as? String,
-                       let get_consolation = jsonResponse["consolation"] as? String {
-                        print("Emotion: \(get_emotion)")
-                        print("Consolation: \(get_consolation)")
-                        self.emotion = get_emotion
-                        self.consolation = get_consolation
-                    }
+
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                emotionAlertController.dismiss(animated: true, completion: nil)
+
+                if let error = error {
+                    print("Error: \(error)")
+                    return
                 }
-            } catch let error {
-                print("Error parsing JSON: \(error)")
+
+                guard let data = data else {
+                    print("No data received")
+                    return
+                }
+
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let get_emotion = jsonResponse["emotion"] as? String,
+                           let get_consolation = jsonResponse["consolation"] as? String {
+                            print("Emotion: \(get_emotion)")
+                            print("Consolation: \(get_consolation)")
+                            self.emotion = get_emotion
+                            self.consolation = get_consolation
+
+                            // 이미지 생성 요청
+                            self.generateImage(qnaString: self.savedQA, emotion: get_emotion)
+                        }
+                    }
+                } catch let error {
+                    print("Error parsing JSON: \(error)")
+                }
             }
         }
+
         task.resume()
-        
-        // 모달 업
-        
-        
-        
     }
-    
+
+    // MARK: - Image Generation
+    private func generateImage(qnaString: String, emotion: String) {
+        let imageAlertController = UIAlertController(title: "이미지 생성중", message: "당신의 이미지를 생성 중입니다. \n 잠시만 기다려주세요.", preferredStyle: .alert)
+        present(imageAlertController, animated: true, completion: nil)
+
+        guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/image-generation") else {
+            print("Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let requestBody: [String: String] = [
+            "qna_string": qnaString,
+            "emotion": emotion
+        ]
+
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+        } catch let error {
+            print("Error serializing JSON: \(error)")
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                imageAlertController.dismiss(animated: true, completion: nil)
+
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                }
+
+                guard let data = data else {
+                    print("No data received")
+                    return
+                }
+
+                do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let imageURL = jsonResponse["image_url"] as? String {
+                            print("Image URL: \(imageURL)")
+
+                            // 다음 뷰 컨트롤러로 이동하며 imageURL 전달
+                            if let nextVC = UIStoryboard(name: "CreateDiaryPage", bundle: nil).instantiateViewController(withIdentifier: "CreateCommentPageController") as? CreateCommentPageController {
+                                nextVC.imageURL = imageURL
+                                nextVC.qnaString = self.savedQA
+                                nextVC.emotion = self.emotion
+                                self.navigationController?.pushViewController(nextVC, animated: true)
+                            }
+                        }
+                    }
+                } catch let error {
+                    print("Error parsing JSON: \(error)")
+                }
+            }
+        }
+
+        task.resume()
+    }
     // MARK: - 애니메이션 메서드
     let fadeDuration: TimeInterval = 1.0
     
@@ -311,4 +382,18 @@ class CreateDiaryPageController: UIViewController {
         
         label.layer.addSublayer(borderLayer)
     }
+    
+    // 키보드가 보여질 때 로직
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            self.view.frame.origin.y = -keyboardHeight / 2 // 필요에 따라 조정
+        }
+    }
+    
+    // 키보드 사라질 때 로직
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
 }
+
