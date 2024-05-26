@@ -19,21 +19,33 @@ class CreateDiaryPageController: UIViewController {
     @IBOutlet weak var myTextField: UITextField!
     
     
-    
     // MARK: - UI Button
     
     @IBOutlet weak var enterChatBtn: UIButton!
     @IBOutlet weak var doneChatBtn: UIButton!
     
+    // MARK: - Properties
+    var questionArray: [String] = []
+    var savedQA = ""
+    let initialQuestion = "당신의 오늘 하루에 대해 들려주세요!"
+    let alignment = UserDefaults.standard.string(forKey: "user_alignment")!
+    var emotion = ""
+    var consolation = ""
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Create Diary"
         
         tfConfig(tf: myTextField)
         comlabelConfig(label: comChatLabel)
-        mylabelConfig(label: myChatLabel)
+        myChatLabel.numberOfLines = 0
+        myChatLabel.lineBreakMode = .byWordWrapping
+        myChatLabel.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        myChatLabel.textAlignment = .center
+        myChatLabel.textColor = UIColor.lightGray
+        
+        // mylabelConfig(label: myChatLabel)
         
         // for open animation
         comChatLabel.alpha = 0.0
@@ -42,8 +54,182 @@ class CreateDiaryPageController: UIViewController {
         enterChatBtn.alpha = 0.0
         doneChatBtn.alpha = 0.0
         startAnimation()
+        comChatLabel.text = initialQuestion
+    }
+    
+    // MARK: - 질문 전송 메서드
+    
+    
+    @IBAction func sendBtnTapped(_ sender: UIButton) {
+        guard let userAnswer = myTextField.text, !userAnswer.isEmpty else {
+            return
+        }
+        
+        // 최초 질문과 사용자 답변을 qnaString으로 생성
+        let qnaString = "Q : \(initialQuestion) A : \(userAnswer)"
+        
+        // 배열에 저장
+        questionArray.append(qnaString)
+        print("저장된질문배열! : ", questionArray)
+        
+        // POST 요청
+        sendPostRequest(qnaString: qnaString)
+    }
+    
+    func sendPostRequest(qnaString: String) {
+        
+        self.myTextField.alpha = 0.0
+        self.comChatLabel.alpha = 0.0
+        self.myChatLabel.alpha = 0.0
+        
+        let ments = ["음..", "오..", "흐음..", "!"]
+        
+        UIView.animate(withDuration: fadeDuration) {
+            self.myTextField.alpha = 1.0
+            self.comChatLabel.alpha = 1.0
+            self.myTextField.text = ""
+            self.comChatLabel.text = ments.randomElement()
+        }
+        
+        guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/question-generation") else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        // Request body 생성
+        let requestBody: [String: String] = [
+            "qna_string": qnaString,
+            "alignment": alignment
+        ]
+        
+        print("Request body: \(requestBody)")
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+        } catch let error {
+            print("Error serializing JSON: \(error)")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            do {
+                self.comChatLabel.alpha = 0.0
+                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let newQuestion = jsonResponse["question"] as? String {
+                    DispatchQueue.main.async {
+                        // "Q:"를 제거
+                        let cleanedQuestion = String(newQuestion.dropFirst(4))
+
+                        print("New question: \(cleanedQuestion)")
+                        
+                        
+                        UIView.animate(withDuration: self.fadeDuration) {
+                            
+                            self.comChatLabel.alpha = 1.0
+                            
+                            self.comChatLabel.text = cleanedQuestion
+                            
+                            // 이전 질문과 답
+                            self.myChatLabel.alpha = 1.0
+                            
+                            if let lastQuestion = self.questionArray.last {
+                                let components = lastQuestion.components(separatedBy: "A :")
+                                if components.count == 2 {
+                                    let formattedText = "\(components[0].trimmingCharacters(in: .whitespaces))\nA: \(components[1].trimmingCharacters(in: .whitespaces))"
+                                    self.myChatLabel.text = formattedText
+                                } else {
+                                    // 구분자가 없는 경우 처리
+                                    self.myChatLabel.text = lastQuestion
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    print("Invalid response format")
+                }
+            } catch let error {
+                print("Error parsing JSON: \(error)")
+            }
+        }
+        
+        task.resume()
+    }
+    
+    @IBAction func endBtnTapped(_ sender: UIButton) {
+        for item in questionArray {
+            savedQA += "\(item) "
+        }
+        print(savedQA)
+        
+        // 감정 생성
+        guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/emotion-generation") else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let requestBody: [String: String] = [
+            "qna_string": savedQA,
+            "alignment" : alignment
+        ]
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+        } catch let error {
+            print("Error serializing JSON: \(error)")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            do {
+                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let get_emotion = jsonResponse["emotion"] as? String,
+                       let get_consolation = jsonResponse["consolation"] as? String {
+                        print("Emotion: \(get_emotion)")
+                        print("Consolation: \(get_consolation)")
+                        self.emotion = get_emotion
+                        self.consolation = get_consolation
+                    }
+                }
+            } catch let error {
+                print("Error parsing JSON: \(error)")
+            }
+        }
+        task.resume()
+        
+        // 모달 업
+        
+        
         
     }
+    
     // MARK: - 애니메이션 메서드
     let fadeDuration: TimeInterval = 1.0
     
@@ -76,77 +262,53 @@ class CreateDiaryPageController: UIViewController {
         borderLayer.cornerRadius = 8.0
         
         borderLayer.shadowColor = UIColor.black.cgColor
-        borderLayer.shadowOpacity = 0.5
+        borderLayer.shadowOpacity = 0.7
         borderLayer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         borderLayer.shadowRadius = 4.0
         
         tf.layer.addSublayer(borderLayer)
         tf.layer.masksToBounds = false
         
+        
+        
     }
     
     // MARK: - Label Config
     private func comlabelConfig(label: UILabel) {
+        let text = label.text ?? ""
+        let attributedString = NSMutableAttributedString(string: text)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10 // 원하는 줄 간격 설정
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.kern, value: 2, range: NSRange(location: 0, length: attributedString.length)) // 글자 사이 간격 설정
+        label.attributedText = attributedString
+        
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         label.textAlignment = .center
-        
-        let borderLayer = CALayer()
-        borderLayer.frame = label.bounds
-        borderLayer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor
-        borderLayer.borderWidth = 1.0
-        borderLayer.cornerRadius = 8.0
-        
-        borderLayer.shadowColor = UIColor.black.cgColor
-        borderLayer.shadowOpacity = 0.8
-        borderLayer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        borderLayer.shadowRadius = 4.0
-        
-        label.layer.addSublayer(borderLayer)
-        label.layer.masksToBounds = false
-        
-        let borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor
-        let borderWidth: CGFloat = 1.0
-        let cornerRadius: CGFloat = 8.0
-        
-        label.layer.borderColor = borderColor
-        label.layer.borderWidth = borderWidth
-        label.layer.cornerRadius = cornerRadius
-        
-        let padding: CGFloat = 8.0
-        label.frame = CGRect(x: padding, y: label.frame.origin.y, width: label.frame.width - padding * 2.0, height: label.frame.height)
     }
     
     private func mylabelConfig(label: UILabel) {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
         label.textAlignment = .center
+        label.textColor = UIColor.lightGray
+        
+        let verticalPadding: CGFloat = 8.0
+        label.frame = CGRect(x: label.frame.origin.x, y: label.frame.origin.y + verticalPadding, width: label.frame.width, height: label.frame.height - verticalPadding * 2.0)
+        
+        let labelSize = label.sizeThatFits(CGSize(width: label.bounds.width, height: CGFloat.greatestFiniteMagnitude))
+        let textWidth = labelSize.width
+        let textHeight = labelSize.height
         
         let borderLayer = CALayer()
-        borderLayer.frame = label.bounds
-        borderLayer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor
-        borderLayer.borderWidth = 1.0
-        borderLayer.cornerRadius = 8.0
-        
-        borderLayer.shadowColor = UIColor.black.cgColor
-        borderLayer.shadowOpacity = 0.8
-        borderLayer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        borderLayer.shadowRadius = 4.0
+        let borderOffset: CGFloat = -1.0
+        let borderWidth = min(textWidth - borderOffset, label.bounds.width)
+        borderLayer.frame = CGRect(x: borderOffset, y: textHeight + verticalPadding, width: borderWidth, height: 1)
+        borderLayer.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor
         
         label.layer.addSublayer(borderLayer)
-        label.layer.masksToBounds = false
-        
-        let borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0).cgColor
-        let borderWidth: CGFloat = 1.0
-        let cornerRadius: CGFloat = 8.0
-        
-        label.layer.borderColor = borderColor
-        label.layer.borderWidth = borderWidth
-        label.layer.cornerRadius = cornerRadius
-        
-        let padding: CGFloat = 8.0
-        label.frame = CGRect(x: padding, y: label.frame.origin.y, width: label.frame.width - padding * 2.0, height: label.frame.height)
     }
 }

@@ -316,13 +316,21 @@ class InputPageController: UIViewController, UITextFieldDelegate {
                 // 유저태그 저장!
                 if let userTag = jsonResult["user_tag"] as? Int {
                     UserDefaults.standard.set(userTag, forKey: "user_tag")
+                    print(userTag)
                 }
                 if let userName = jsonResult["user_name"] as? String {
                     UserDefaults.standard.set(userName, forKey: "user_name")
+                    print(userName)
                 }
                 if let userPolite = jsonResult["polite"] as? Bool {
                     UserDefaults.standard.set(userPolite, forKey: "user_polite")
+                    print(userPolite)
                 }
+                if let userAlignment = jsonResult["alignment"] as? String {
+                    UserDefaults.standard.set(userAlignment, forKey: "user_alignment")
+                    print(userAlignment)
+                }
+                
             }
         }
         task.resume()
