@@ -123,7 +123,8 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
     private func sendPostRequest(comment: String, emotion: String) {
         
         // * 엔드라인 기준 library_id == user_tag
-        let libraryID = UserDefaults.standard.integer(forKey: "user_tag")
+        let libraryID = UserDefaults.standard.integer(forKey: "library_id")
+        print(libraryID)
         
         guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/books") else {
             print("Invalid URL")
@@ -139,7 +140,7 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
             "image": imageURL,
             "comment": comment,
             "detail_story": qnaString,
-            "emotion": emotion
+            "emotion": "기쁨"
         ]
         
         print("requestBody(books) : \(libraryID), \(imageURL), \(comment), \(qnaString), \(emotion)")

@@ -1,0 +1,6 @@
+framework module Pods_hye_eum {
+  umbrella header "Pods-hye_eum-umbrella.h"
+
+  export *
+  module * { export * }
+}

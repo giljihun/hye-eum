@@ -32,6 +32,7 @@ class MainPageController: UIViewController {
             let sadness: Int
             let joy: Int
             let gpt_comment: String
+            let library_id: Int
         }
     }
     
@@ -96,6 +97,7 @@ class MainPageController: UIViewController {
     private var animation: UIViewPropertyAnimator?
     
     let userTag = UserDefaults.standard.integer(forKey: "user_tag")
+    let libraryID = UserDefaults.standard.integer(forKey: "library_id")
     
     // MARK: - UI CollectionView
     @IBOutlet weak var myCollectionView: UICollectionView!
@@ -294,12 +296,13 @@ class MainPageController: UIViewController {
     func fetchLibrary() {
         print("fetching!")
         let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/library?user_tag=\(userTag)")!
+        print(userTag)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
         URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             guard let self = self else { return }
-
+            
             if let error = error {
                 print("Error: \(error)")
                 return
@@ -312,9 +315,18 @@ class MainPageController: UIViewController {
             do {
                 let response = try JSONDecoder().decode([LibraryResponse].self, from: data)
                 if let libraryResponse = response.first {
-                    self.books = libraryResponse.books
-                    print("Statistics: \(libraryResponse.statistics)")
-                    print("Book Count: \(libraryResponse.book_count)")
+                    
+                    // print(libraryResponse.books)
+                    self.books = response.flatMap { $0.books }
+                    
+                    if let lastLibraryResponse = response.last,
+                       let lastStatistics = lastLibraryResponse.statistics.last {
+                        let lastLibraryID = lastStatistics.library_id
+                        print("library_id : \(lastLibraryID)")
+                        
+                        // UserDefaults에 저장
+                        UserDefaults.standard.set(lastLibraryID, forKey: "library_id")
+                    }
                 }
 
                 DispatchQueue.main.async {

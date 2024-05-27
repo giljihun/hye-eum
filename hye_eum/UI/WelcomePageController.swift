@@ -42,6 +42,26 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     }
     
     // MARK: - Methods
+    func welcome_nextBtnAnimation() {
+        let fadeDuration = 1.5 // 페이드 인 시간 설정
+        let scaleDuration = 1.3 // 크기 조정 시간 설정
+        let scaleMultiplier: CGFloat = 1.2 // 크기를 키우는 배수 설정
+        
+        // 애니메이션 1: 페이드 인 및 크기 조정
+        UIView.animate(withDuration: fadeDuration, animations: {
+            self.welcome_nextBtn.alpha = 1.0
+            self.welcome_nextBtn.transform = CGAffineTransform(scaleX: scaleMultiplier, y: scaleMultiplier)
+        }, completion: { _ in
+            // 애니메이션 2: 원래 크기로 되돌리기
+            UIView.animate(withDuration: scaleDuration, animations: {
+                self.welcome_nextBtn.transform = CGAffineTransform.identity
+            }, completion: { _ in
+                // 애니메이션 반복
+                self.welcome_nextBtnAnimation()
+            })
+        })
+    }
+    
     
     // Configure the openingMent label
     private func configureOpeningMentLabel() {
@@ -96,10 +116,11 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
                 self.openingMent.text = "그 전에, 당신에 대해 몇가지 물어볼게요. \n\n 아래 버튼을 눌러주세요."
                 UIView.animate(withDuration: self.fadeDuration) {
                     self.openingMent.alpha = 1.0
-                    self.welcome_nextBtn.alpha = 1.0
                     self.logoTextOne.alpha = 1.0
                     self.logoTextTwo.alpha = 1.0
                     self.devByLogo.alpha = 1.0
+                    self.welcome_nextBtn.alpha = 1.0
+                    //self.welcome_nextBtnAnimation()
                 }
                 return
             }

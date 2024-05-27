@@ -17,19 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgD-WR-N1Z">
-                                <rect key="frame" x="324" y="103" width="53" height="35"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="info.bubble" catalog="system"/>
-                                <connections>
-                                    <segue destination="9d2-Ds-AhS" kind="popoverPresentation" popoverAnchorView="BgD-WR-N1Z" id="fY6-yc-nes">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hye:Eum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODa-9W-erw">
-                                <rect key="frame" x="16.000000000000007" y="103" width="116.66666666666669" height="68"/>
+                                <rect key="frame" x="16.000000000000007" y="105" width="116.66666666666669" height="73"/>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -100,8 +89,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0oX-yo-kcA">
-                                <rect key="frame" x="0.0" y="683" width="393" height="500"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0oX-yo-kcA">
+                                <rect key="frame" x="0.0" y="208" width="393" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="500" id="o1a-Xi-GSp"/>
@@ -114,20 +103,31 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgD-WR-N1Z">
+                                <rect key="frame" x="328" y="103" width="49" height="34.333333333333343"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="questionmark.circle.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="9d2-Ds-AhS" kind="popoverPresentation" popoverAnchorView="BgD-WR-N1Z" id="fY6-yc-nes">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstItem="HjH-7U-00v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0C9-aJ-fOE"/>
-                            <constraint firstItem="BgD-WR-N1Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="302-c9-WIc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BgD-WR-N1Z" secondAttribute="trailing" constant="16" id="3fE-JK-I8U"/>
                             <constraint firstItem="0oX-yo-kcA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AqC-LG-01I"/>
                             <constraint firstItem="HjH-7U-00v" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EZc-oy-9di"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0oX-yo-kcA" secondAttribute="bottom" constant="117" id="Fyf-wQ-q4W"/>
-                            <constraint firstItem="ODa-9W-erw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M0G-wb-usY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0oX-yo-kcA" secondAttribute="bottom" constant="110" id="Fyf-wQ-q4W"/>
+                            <constraint firstItem="ODa-9W-erw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="HSM-0m-RFv"/>
+                            <constraint firstItem="BgD-WR-N1Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="J5D-Ry-sjQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BgD-WR-N1Z" secondAttribute="trailing" constant="16" id="Jkh-X3-8SE"/>
                             <constraint firstItem="0oX-yo-kcA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PO3-1a-Jxe"/>
                             <constraint firstItem="0oX-yo-kcA" firstAttribute="top" secondItem="ODa-9W-erw" secondAttribute="bottom" constant="30" id="R0r-bb-BgT"/>
-                            <constraint firstItem="ODa-9W-erw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gRp-9o-9FO"/>
+                            <constraint firstItem="ODa-9W-erw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="mdg-GN-fXA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="96N-xk-edf"/>
@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2924" y="5"/>
+            <point key="canvasLocation" x="2922.9007633587785" y="4.9295774647887329"/>
         </scene>
         <!--OptionPageController-->
         <scene sceneID="hVD-0t-R96">
@@ -191,7 +191,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.bubble" catalog="system" width="128" height="110"/>
+        <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

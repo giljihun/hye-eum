@@ -29,11 +29,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwf-nL-9ih">
-                                <rect key="frame" x="169.66666666666666" y="498.99999999999994" width="53.666666666666657" height="34.333333333333314"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="다음"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwf-nL-9ih">
+                                <rect key="frame" x="173" y="498.00000000000006" width="47" height="42.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47.240000000000002" id="BcG-Xh-Lng"/>
+                                    <constraint firstAttribute="height" constant="40.659999999999997" id="zIT-hB-f9U"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="             " backgroundImage="aqi.medium" catalog="system"/>
                                 <connections>
-                                    <action selector="nextBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QFG-z8-MeM"/>
+                                    <action selector="nextBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HYh-sI-Z8k"/>
                                     <segue destination="PnX-6F-phR" kind="push" id="BA1-gm-vaP"/>
                                 </connections>
                             </button>
@@ -123,6 +129,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="aqi.medium" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

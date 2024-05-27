@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE072B60A82DAF7CBCA510E6 /* Pods_hye_eum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E13AF6AF852089F971A31F16 /* Pods_hye_eum.framework */; };
 		F20729E02BFCEF2C007A301B /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0F892BECEBFD005EC753 /* MainPage.storyboard */; };
 		F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20729E12BFDC4EF007A301B /* dummyCodes.swift */; };
 		F211F1622C01ED06004F40B4 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F211F1602C01ED06004F40B4 /* MyCollectionViewCell.swift */; };
@@ -39,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51548A2D59DC9770FAF831FD /* Pods-hye_eum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hye_eum.release.xcconfig"; path = "Target Support Files/Pods-hye_eum/Pods-hye_eum.release.xcconfig"; sourceTree = "<group>"; };
+		E13AF6AF852089F971A31F16 /* Pods_hye_eum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hye_eum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E76FBE38D9DDBBE7C59651A1 /* Pods-hye_eum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hye_eum.debug.xcconfig"; path = "Target Support Files/Pods-hye_eum/Pods-hye_eum.debug.xcconfig"; sourceTree = "<group>"; };
 		F20729E12BFDC4EF007A301B /* dummyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyCodes.swift; sourceTree = "<group>"; };
 		F211F1602C01ED06004F40B4 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F211F1612C01ED06004F40B4 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -76,12 +80,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE072B60A82DAF7CBCA510E6 /* Pods_hye_eum.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		873EFE40A498A542CF6C5941 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E13AF6AF852089F971A31F16 /* Pods_hye_eum.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C85066D97C5FB4AA931B71C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E76FBE38D9DDBBE7C59651A1 /* Pods-hye_eum.debug.xcconfig */,
+				51548A2D59DC9770FAF831FD /* Pods-hye_eum.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F211F1592C01EB60004F40B4 /* MyCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +118,8 @@
 			children = (
 				F27E0F822BECEBFD005EC753 /* hye_eum */,
 				F27E0F812BECEBFD005EC753 /* Products */,
+				9C85066D97C5FB4AA931B71C /* Pods */,
+				873EFE40A498A542CF6C5941 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F27E0F972BECEC01005EC753 /* Build configuration list for PBXNativeTarget "hye_eum" */;
 			buildPhases = (
+				2668912E4221938BFAF456F9 /* [CP] Check Pods Manifest.lock */,
 				F27E0F7C2BECEBFD005EC753 /* Sources */,
 				F27E0F7D2BECEBFD005EC753 /* Frameworks */,
 				F27E0F7E2BECEBFD005EC753 /* Resources */,
+				8149548FB3F6CB0345635FDE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,6 +285,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2668912E4221938BFAF456F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-hye_eum-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8149548FB3F6CB0345635FDE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hye_eum/Pods-hye_eum-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hye_eum/Pods-hye_eum-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hye_eum/Pods-hye_eum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F27E0F7C2BECEBFD005EC753 /* Sources */ = {
@@ -341,7 +409,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -404,7 +472,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -425,6 +493,7 @@
 		};
 		F27E0F982BECEC01005EC753 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76FBE38D9DDBBE7C59651A1 /* Pods-hye_eum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +525,7 @@
 		};
 		F27E0F992BECEC01005EC753 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51548A2D59DC9770FAF831FD /* Pods-hye_eum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
