@@ -8,13 +8,43 @@
 import UIKit
 
 class MainPageController: UIViewController {
+    // MARK: - Book Struct
+    struct LibraryResponse: Codable {
+        let id: Int
+        let user_id: Int
+        let books: [Book]
+        let statistics: [Statistics]
+        let book_count: Int
+        
+        struct Book: Codable {
+            let id: Int
+            let library_id: Int
+            let image: String
+            let comment: String
+            let detail_story: String
+            let emotion: String
+            let created_at: String
+        }
+        
+        struct Statistics: Codable {
+            let happiness: Int
+            let aggro: Int
+            let sadness: Int
+            let joy: Int
+            let gpt_comment: String
+        }
+    }
+    
     // MARK: - UI outlets
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var optionBtn: UIButton!
     @IBOutlet weak var booksView: UICollectionView!
+    @IBOutlet weak var noDataLabel: UILabel!
     
     // MARK: - UI Property
+    
+    var books: [LibraryResponse.Book] = []
     
     private lazy var floatingButton: UIButton = {
         let button = UIButton()
@@ -64,6 +94,8 @@ class MainPageController: UIViewController {
     }
     
     private var animation: UIViewPropertyAnimator?
+    
+    let userTag = UserDefaults.standard.integer(forKey: "user_tag")
     
     // MARK: - UI CollectionView
     @IBOutlet weak var myCollectionView: UICollectionView!
@@ -117,12 +149,37 @@ class MainPageController: UIViewController {
         optionBtn.alpha = 0.0
         booksView.alpha = 0.0
         
+        
+        noDataLabelAnimation()
+        
         self.myCollectionView.dataSource = self
         self.myCollectionView.delegate = self
         
         self.myCollectionViewInit()
         
+        fetchLibrary()
+        
         startAnimation()
+    }
+    
+    func noDataLabelAnimation() {
+        let fadeDuration = 1.5 // 페이드 인 시간 설정
+        let scaleDuration = 1.3 // 크기 조정 시간 설정
+        let scaleMultiplier: CGFloat = 1.2 // 크기를 키우는 배수 설정
+        
+        // 애니메이션 1: 페이드 인 및 크기 조정
+        UIView.animate(withDuration: fadeDuration, animations: {
+            self.noDataLabel.alpha = 1.0
+            self.noDataLabel.transform = CGAffineTransform(scaleX: scaleMultiplier, y: scaleMultiplier)
+        }, completion: { _ in
+            // 애니메이션 2: 원래 크기로 되돌리기
+            UIView.animate(withDuration: scaleDuration, animations: {
+                self.noDataLabel.transform = CGAffineTransform.identity
+            }, completion: { _ in
+                // 애니메이션 반복
+                self.noDataLabelAnimation()
+            })
+        })
     }
     
     override func viewDidLayoutSubviews() {
@@ -155,7 +212,7 @@ class MainPageController: UIViewController {
             self.booksView.alpha = 1.0
         }
     }
-
+    
     
     // MARK: - 버튼 액션 메서드
     
@@ -165,6 +222,7 @@ class MainPageController: UIViewController {
     
     // statButton을 눌렀을 때의 액션 메서드
     @objc private func statButtonTapped() {
+        isActive.toggle()
         // StatPage로 이동
         if let statPageVC = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "StatsPageController") as? StatsPageController {
             navigationController?.pushViewController(statPageVC, animated: true)
@@ -176,6 +234,7 @@ class MainPageController: UIViewController {
     }
     // createButton을 눌렀을 때의 액션 메서드
     @objc private func createButtonTapped() {
+        isActive.toggle()
         // StatPage로 이동
         if let createPageVC = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "CreateDiaryPageController") as? CreateDiaryPageController {
             navigationController?.pushViewController(createPageVC, animated: true)
@@ -185,7 +244,7 @@ class MainPageController: UIViewController {
         // 제스처로 뒤로가는 기능 삭제
         // self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
-
+    
     // MARK: - 애니메이션 메서드
     
     private func showActionButtons() {
@@ -230,15 +289,76 @@ class MainPageController: UIViewController {
         animation.isRemovedOnCompletion = false
         floatingButton.layer.add(animation, forKey: nil)
     }
+    
+    // MARK: - Book 객체 가져오기
+    func fetchLibrary() {
+        print("fetching!")
+        let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/library?user_tag=\(userTag)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self else { return }
+
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+
+            guard let data = data else {
+                return
+            }
+
+            do {
+                let response = try JSONDecoder().decode([LibraryResponse].self, from: data)
+                if let libraryResponse = response.first {
+                    self.books = libraryResponse.books
+                    print("Statistics: \(libraryResponse.statistics)")
+                    print("Book Count: \(libraryResponse.book_count)")
+                }
+
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                }
+            } catch {
+                print("JSON decoding error: \(error)")
+            }
+        }.resume()
+    }
 }
 
 extension MainPageController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if books.count == 0 {
+            // books 배열이 비어있으면 noDataLabel을 표시합니다.
+            noDataLabel.isHidden = false
+            collectionView.isHidden = true
+            return 0
+        } else {
+            // books 배열에 데이터가 있으면 컬렉션뷰를 표시합니다.
+            noDataLabel.isHidden = true
+            collectionView.isHidden = false
+            return books.count
+        }
+        
+//        // collectionview 보여주는 테스트 코드
+//        if books.count == 0 {
+//            // books 배열이 비어있으면 noDataLabel을 표시합니다.
+//            noDataLabel.isHidden = true
+//            collectionView.isHidden = false
+//            return 10
+//        } else {
+//            // books 배열에 데이터가 있으면 컬렉션뷰를 표시합니다.
+//            noDataLabel.isHidden = false
+//            collectionView.isHidden = true
+//            return books.count
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.myCollectionView.dequeueReusableCell(withReuseIdentifier: "MyCollectionViewCell", for: indexPath) as! MyCollectionViewCell
+        let book = books[indexPath.row]
+        cell.configure(with: book)
         return cell
     }
     
