@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateDiaryPageController: UIViewController {
+class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
     
     // MARK: - UI Label
     
@@ -35,7 +35,21 @@ class CreateDiaryPageController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+//        // 네비게이션 바 안보이게
+//        self.navigationController?.navigationBar.isHidden = true
+//        // 제스처로 뒤로가는 기능 삭제
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        // 키보드 나타남/사라짐을 감지하는 Notification 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        myTextField.delegate = self
         
         tfConfig(tf: myTextField)
         comlabelConfig(label: comChatLabel)
@@ -44,8 +58,6 @@ class CreateDiaryPageController: UIViewController {
         myChatLabel.font = UIFont.systemFont(ofSize: 15, weight: .light)
         myChatLabel.textAlignment = .center
         myChatLabel.textColor = UIColor.lightGray
-        
-        // mylabelConfig(label: myChatLabel)
         
         // for open animation
         comChatLabel.alpha = 0.0
@@ -58,8 +70,6 @@ class CreateDiaryPageController: UIViewController {
     }
     
     // MARK: - 질문 전송 메서드
-    
-    
     @IBAction func sendBtnTapped(_ sender: UIButton) {
         guard let userAnswer = myTextField.text, !userAnswer.isEmpty else {
             return
@@ -87,6 +97,13 @@ class CreateDiaryPageController: UIViewController {
         
         // POST 요청
         sendPostRequest(qnaString: questionArray.last ?? "")
+    }
+    
+    // 리턴버튼으로 제출버튼 누르기
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // 키보드 숨기기
+        sendBtnTapped(UIButton()) // 제출 액션 수행
+        return true
     }
     
     func sendPostRequest(qnaString: String) {
@@ -396,12 +413,15 @@ class CreateDiaryPageController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            self.view.frame.origin.y = -keyboardHeight / 2 // 필요에 따라 조정
+            
+            // 키보드 높이만큼 뷰 올리기
+            self.view.frame.origin.y = -keyboardHeight
         }
     }
-    
-    // 키보드 사라질 때 로직
+
+    // 키보드가 사라질 때 로직
     @objc func keyboardWillHide(notification: NSNotification) {
+        // 뷰 원래 위치로 되돌리기
         self.view.frame.origin.y = 0
     }
 }

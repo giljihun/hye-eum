@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drU-8w-dME">
-                                <rect key="frame" x="333" y="686" width="49" height="35"/>
+                                <rect key="frame" x="333" y="762" width="49" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.up.square.fill" catalog="system">
                                     <backgroundConfiguration key="background"/>
@@ -33,25 +33,8 @@
                                     <action selector="sendBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="T6z-dI-eci"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZb-w9-Poj">
-                                <rect key="frame" x="152.66666666666666" y="777" width="88" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="대화 종료"/>
-                                <connections>
-                                    <action selector="endBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9g0-e0-eKD"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CS1-XM-4gM">
-                                <rect key="frame" x="37" y="684" width="300" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="PDc-pe-TxJ"/>
-                                    <constraint firstAttribute="height" constant="40" id="Z2j-OI-KhC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="previous Q&amp;A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7O-qn-WuM">
-                                <rect key="frame" x="37" y="583" width="300" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="previous Q&amp;A will show this Area!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7O-qn-WuM">
+                                <rect key="frame" x="37" y="657" width="300" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="9Iq-rb-JW6"/>
                                 </constraints>
@@ -59,23 +42,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CS1-XM-4gM">
+                                <rect key="frame" x="37" y="758" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="PDc-pe-TxJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="Z2j-OI-KhC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZb-w9-Poj">
+                                <rect key="frame" x="275" y="103" width="102" height="35"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="대화 끝내기"/>
+                                <connections>
+                                    <action selector="endBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9g0-e0-eKD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="drU-8w-dME" secondAttribute="trailing" constant="11" id="4k6-fd-Mdb"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="drU-8w-dME" secondAttribute="bottom" constant="97" id="6dw-Du-qKv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="drU-8w-dME" secondAttribute="bottom" constant="21" id="6dw-Du-qKv"/>
                             <constraint firstItem="1cN-56-ujU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200" id="96j-uw-VoH"/>
-                            <constraint firstItem="yZb-w9-Poj" firstAttribute="top" secondItem="CS1-XM-4gM" secondAttribute="bottom" constant="53" id="TGi-UQ-yYg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CS1-XM-4gM" secondAttribute="bottom" constant="20" id="BMk-X0-OYa"/>
                             <constraint firstItem="CS1-XM-4gM" firstAttribute="top" secondItem="F7O-qn-WuM" secondAttribute="bottom" constant="80" id="UjY-YX-7GR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1cN-56-ujU" secondAttribute="trailing" constant="20" id="aAI-oY-FC8"/>
+                            <constraint firstItem="yZb-w9-Poj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="aiR-U1-5iI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yZb-w9-Poj" secondAttribute="trailing" constant="16" id="cYZ-Qs-6A4"/>
                             <constraint firstItem="F7O-qn-WuM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="37" id="fZa-mx-8yf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F7O-qn-WuM" secondAttribute="trailing" constant="56" id="jXI-ZX-K9E"/>
                             <constraint firstItem="1cN-56-ujU" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="mDk-g6-g9E"/>
                             <constraint firstItem="1cN-56-ujU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="n1v-3r-NAk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CS1-XM-4gM" secondAttribute="trailing" constant="56" id="ne4-br-AF3"/>
-                            <constraint firstItem="yZb-w9-Poj" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="s9W-di-ZjQ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yZb-w9-Poj" secondAttribute="bottom" constant="6" id="t1c-gh-13t"/>
                             <constraint firstItem="CS1-XM-4gM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="37" id="uhF-zj-9Es"/>
                         </constraints>
                     </view>
@@ -123,6 +124,9 @@
     </scenes>
     <resources>
         <image name="arrow.up.square.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
