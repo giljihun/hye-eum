@@ -5,6 +5,7 @@
 //  Created by mobicom on 5/16/24.
 //
 
+import Charts
 import UIKit
 
 class StatsPageController: UIViewController {

@@ -17,14 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문들..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-56-ujU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="comChatLabelBottomConstraint" text="질문들..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-56-ujU">
                                 <rect key="frame" x="20" y="303" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drU-8w-dME">
-                                <rect key="frame" x="333" y="762" width="49" height="35"/>
+                                <rect key="frame" x="333" y="760" width="49" height="35"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.up.square.fill" catalog="system">
                                     <backgroundConfiguration key="background"/>
@@ -51,11 +52,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZb-w9-Poj">
-                                <rect key="frame" x="275" y="103" width="102" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPX-0F-HOa">
+                                <rect key="frame" x="16" y="103" width="52" height="35"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="대화 끝내기"/>
+                                <buttonConfiguration key="configuration" style="plain" image="delete.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="backBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5ee-c4-nbn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZb-w9-Poj">
+                                <rect key="frame" x="324.66666666666669" y="103" width="52.333333333333314" height="34.333333333333343"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="paintbrush.pointed" catalog="system"/>
                                 <connections>
                                     <action selector="endBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9g0-e0-eKD"/>
                                 </connections>
@@ -65,9 +75,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="drU-8w-dME" secondAttribute="trailing" constant="11" id="4k6-fd-Mdb"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="drU-8w-dME" secondAttribute="bottom" constant="21" id="6dw-Du-qKv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="drU-8w-dME" secondAttribute="bottom" constant="23" id="6dw-Du-qKv"/>
                             <constraint firstItem="1cN-56-ujU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200" id="96j-uw-VoH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CS1-XM-4gM" secondAttribute="bottom" constant="20" id="BMk-X0-OYa"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="1cN-56-ujU" secondAttribute="bottom" constant="494.67000000000002" identifier="comChatLabelBottomConstraint" id="Nks-pn-IQ6"/>
                             <constraint firstItem="CS1-XM-4gM" firstAttribute="top" secondItem="F7O-qn-WuM" secondAttribute="bottom" constant="80" id="UjY-YX-7GR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1cN-56-ujU" secondAttribute="trailing" constant="20" id="aAI-oY-FC8"/>
                             <constraint firstItem="yZb-w9-Poj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="aiR-U1-5iI"/>
@@ -77,11 +88,14 @@
                             <constraint firstItem="1cN-56-ujU" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="mDk-g6-g9E"/>
                             <constraint firstItem="1cN-56-ujU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="n1v-3r-NAk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CS1-XM-4gM" secondAttribute="trailing" constant="56" id="ne4-br-AF3"/>
+                            <constraint firstItem="HPX-0F-HOa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="tHt-nK-GGP"/>
                             <constraint firstItem="CS1-XM-4gM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="37" id="uhF-zj-9Es"/>
+                            <constraint firstItem="HPX-0F-HOa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zIi-tI-pH3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l60-pj-aF7"/>
                     <connections>
+                        <outlet property="backBtn" destination="HPX-0F-HOa" id="bqn-Sg-JDD"/>
                         <outlet property="comChatLabel" destination="1cN-56-ujU" id="S3A-1j-Ro0"/>
                         <outlet property="doneChatBtn" destination="yZb-w9-Poj" id="hm9-n0-kNU"/>
                         <outlet property="enterChatBtn" destination="drU-8w-dME" id="ook-gL-FKO"/>
@@ -121,9 +135,19 @@
             </objects>
             <point key="canvasLocation" x="74.045801526717554" y="-2.1126760563380285"/>
         </scene>
+        <!--MainPageController-->
+        <scene sceneID="SlK-wH-uVL">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MainPageController" storyboardName="MainPage" referencedIdentifier="MainPageController" id="RcE-6x-Vpe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yxX-10-Zlu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1561" y="-18"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.up.square.fill" catalog="system" width="128" height="114"/>
+        <image name="delete.backward" catalog="system" width="128" height="102"/>
+        <image name="paintbrush.pointed" catalog="system" width="128" height="118"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -57,10 +57,6 @@ class MyCollectionViewCell: UICollectionViewCell {
         
         emotionLabel.text = book.emotion
         dateLabel.text = formatDate(book.created_at)
-        
-        print("Book created_at: \(book.created_at)")
-        print("Formatted date: \(dateLabel.text ?? "")")
-        
     }
     
     // MARK: - Load Thumbnail Image

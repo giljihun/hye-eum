@@ -33,10 +33,15 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        imageView.alpha = 0.0
+        commentTextView.alpha = 0.0
+        pickerView.alpha = 0.0
+        doneBtn.alpha = 0.0
+        
+        
         print(qnaString)
         print(emotion)
         
-        // 이미지 불러오기
         loadImage(from: imageURL)
         
         // PickerView 설정
@@ -81,7 +86,15 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
                     return
                 }
                 
-                self.imageView.image = image
+                // 이미지 불러오기
+                UIView.animate(withDuration: 1.2) {
+                    self.commentTextView.alpha = 1.0
+                    self.pickerView.alpha = 1.0
+                    self.doneBtn.alpha = 1.0
+                    self.imageView.alpha = 1.0
+                
+                    self.imageView.image = image
+                }
             }
         }
         

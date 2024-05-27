@@ -23,6 +23,7 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var enterChatBtn: UIButton!
     @IBOutlet weak var doneChatBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
     
     // MARK: - Properties
     var questionArray: [String] = []
@@ -36,10 +37,10 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // 네비게이션 바 안보이게
-//        self.navigationController?.navigationBar.isHidden = true
-//        // 제스처로 뒤로가는 기능 삭제
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        // 네비게이션 바 안보이게
+        self.navigationController?.navigationBar.isHidden = true
+        // 제스처로 뒤로가는 기능 삭제
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         // 키보드 나타남/사라짐을 감지하는 Notification 추가
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -409,6 +410,11 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
         label.layer.addSublayer(borderLayer)
     }
     
+    
+    @IBAction func backBtnTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     // 키보드가 보여질 때 로직
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -416,6 +422,16 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
             
             // 키보드 높이만큼 뷰 올리기
             self.view.frame.origin.y = -keyboardHeight
+            
+            // comChatLabel의 제약 조건 변경
+            if let comChatLabelConstraint = self.view.constraints.first(where: { $0.identifier == "comChatLabelBottomConstraint" }) {
+                comChatLabelConstraint.constant = keyboardHeight
+                
+                // 애니메이션 효과를 주기 위해 layoutIfNeeded() 호출
+                UIView.animate(withDuration: 0.3) {
+                    self.view.layoutIfNeeded()
+                }
+            }
         }
     }
 
@@ -423,6 +439,16 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillHide(notification: NSNotification) {
         // 뷰 원래 위치로 되돌리기
         self.view.frame.origin.y = 0
+        
+        // comChatLabel의 제약 조건 원래 값으로 되돌리기
+        if let comChatLabelConstraint = self.view.constraints.first(where: { $0.identifier == "comChatLabelBottomConstraint" }) {
+            comChatLabelConstraint.constant = 494.67
+            
+            // 애니메이션 효과를 주기 위해 layoutIfNeeded() 호출
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }
 
