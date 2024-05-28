@@ -124,15 +124,27 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAq-wF-uX9">
+                                <rect key="frame" x="16" y="59" width="52" height="34.333333333333343"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="delete.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="backBtnTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IQc-E8-N2J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GkS-ga-mla" secondAttribute="bottom" constant="119" id="4Bk-lZ-mZI"/>
+                            <constraint firstItem="UAq-wF-uX9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nrJ-fV-gIr"/>
+                            <constraint firstItem="UAq-wF-uX9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="p6q-z6-kR7"/>
                             <constraint firstItem="GkS-ga-mla" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="qtE-mA-yUf"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backBtn" destination="UAq-wF-uX9" id="oMv-za-3po"/>
                         <outlet property="commentLabel" destination="GkS-ga-mla" id="BJ6-kR-PWe"/>
                     </connections>
                 </viewController>
@@ -142,6 +154,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="delete.backward" catalog="system" width="128" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

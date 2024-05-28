@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="comChatLabelBottomConstraint" text="질문들..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-56-ujU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="comChatLabelBottomConstraint" text="질문들..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-56-ujU">
                                 <rect key="frame" x="20" y="303" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -78,7 +78,6 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="drU-8w-dME" secondAttribute="bottom" constant="23" id="6dw-Du-qKv"/>
                             <constraint firstItem="1cN-56-ujU" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200" id="96j-uw-VoH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CS1-XM-4gM" secondAttribute="bottom" constant="20" id="BMk-X0-OYa"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="1cN-56-ujU" secondAttribute="bottom" constant="494.67000000000002" identifier="comChatLabelBottomConstraint" id="Nks-pn-IQ6"/>
                             <constraint firstItem="CS1-XM-4gM" firstAttribute="top" secondItem="F7O-qn-WuM" secondAttribute="bottom" constant="80" id="UjY-YX-7GR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1cN-56-ujU" secondAttribute="trailing" constant="20" id="aAI-oY-FC8"/>
                             <constraint firstItem="yZb-w9-Poj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="aiR-U1-5iI"/>

@@ -34,6 +34,7 @@ class DetailPageController: UIViewController {
         textView.textAlignment = .left
         textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         textView.font = UIFont(name: "나눔명조", size: 18.0)
+        textView.textColor = UIColor.darkGray
         
         // 그림자 효과 설정
         textView.layer.shadowColor = UIColor.black.cgColor

@@ -5,6 +5,7 @@ import SwiftUI
 class StatsPageController: UIViewController {
     
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var backBtn: UIButton!
     
     var emotionData: [String] = ["기쁨", "화남", "슬픔", "즐거움"]
     var countData: [Int] = [0, 0, 0, 0]
@@ -12,6 +13,12 @@ class StatsPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 네비게이션 바 안보이게
+        self.navigationController?.navigationBar.isHidden = true
+        // 제스처로 뒤로가는 기능 삭제
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         print("BEFORE FETCHING")
         
         fetchStats()
@@ -40,7 +47,7 @@ class StatsPageController: UIViewController {
                         self.countData[0] = happiness
                     }
                     
-                    if let joy = jsonResult["joy"] as? Int {
+                    if let joy = jsonResult["aggro"] as? Int {
                         self.countData[1] = joy
                     }
                     
@@ -48,7 +55,7 @@ class StatsPageController: UIViewController {
                         self.countData[2] = sadness
                     }
                     
-                    if let aggro = jsonResult["aggro"] as? Int {
+                    if let aggro = jsonResult["joy"] as? Int {
                         self.countData[3] = aggro
                     }
                     
@@ -70,13 +77,20 @@ class StatsPageController: UIViewController {
         task.resume()
     }
     
+    
+    @IBAction func backBtnTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func drawChart() {
         print("AFTER FETCHING")
         print("eD", emotionData)
         print("cD", countData)
         
         if #available(iOS 16.0, *) {
+            
             let chart = Chart {
+
                 BarMark(
                     x: .value("Shape Type", emotionData[0]),
                     y: .value("Total Count", min(countData[0], 5))
@@ -102,6 +116,7 @@ class StatsPageController: UIViewController {
                 .foregroundStyle(Color.orange)
             }
                 .chartYScale(domain: 0...5)
+                .animation(.easeIn, value: countData)
             
             // 차트를 담을 호스트 뷰 생성
             let hostView = UIHostingController(rootView: chart)
@@ -120,7 +135,7 @@ class StatsPageController: UIViewController {
                 hostView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
                 hostView.view.heightAnchor.constraint(equalTo: hostView.view.widthAnchor, multiplier: 1.2)
             ])
-
+            
             // 호스트 뷰를 commentLabel의 위에 배치하는 제약 조건 추가
             NSLayoutConstraint.activate([
                 hostView.view.bottomAnchor.constraint(equalTo: commentLabel.topAnchor, constant: -40),

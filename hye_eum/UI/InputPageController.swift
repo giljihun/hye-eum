@@ -330,7 +330,6 @@ class InputPageController: UIViewController, UITextFieldDelegate {
                     UserDefaults.standard.set(userAlignment, forKey: "user_alignment")
                     print(userAlignment)
                 }
-                
             }
         }
         task.resume()

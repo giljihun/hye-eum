@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PU-mv-yY7">
-                                <rect key="frame" x="224.66666666666666" y="343.66666666666669" width="36.333333333333343" height="31"/>
+                                <rect key="frame" x="224.66666666666666" y="363.66666666666669" width="36.333333333333343" height="31"/>
                                 <attributedString key="attributedText">
                                     <fragment content="기쁨">
                                         <attributes>
@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPp-MV-oHa">
-                                <rect key="frame" x="127.33333333333333" y="378.66666666666669" width="133.66666666666669" height="26.333333333333314"/>
+                                <rect key="frame" x="127.33333333333333" y="398.66666666666669" width="133.66666666666669" height="26.333333333333314"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2024">
                                         <attributes>
@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-D3-XqM">
-                                <rect key="frame" x="81.333333333333343" y="311" width="117.33333333333334" height="17.666666666666686"/>
+                                <rect key="frame" x="81.333333333333343" y="331" width="117.33333333333334" height="17.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment content="세부">
                                         <attributes>
@@ -146,7 +146,7 @@
                             <constraint firstItem="mPp-MV-oHa" firstAttribute="top" secondItem="8PU-mv-yY7" secondAttribute="bottom" constant="4" id="Ukk-tY-941"/>
                             <constraint firstItem="Hr4-D3-XqM" firstAttribute="centerX" secondItem="lbh-jF-m2x" secondAttribute="centerX" id="hgo-i7-3cg"/>
                             <constraint firstAttribute="height" constant="450" id="ih9-5K-lpD"/>
-                            <constraint firstAttribute="bottom" secondItem="mPp-MV-oHa" secondAttribute="bottom" constant="45" id="sI9-sb-HME"/>
+                            <constraint firstAttribute="bottom" secondItem="mPp-MV-oHa" secondAttribute="bottom" constant="25" id="sI9-sb-HME"/>
                         </constraints>
                     </view>
                 </subviews>

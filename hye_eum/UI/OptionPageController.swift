@@ -265,6 +265,7 @@ class OptionPageController: UIViewController {
         if self.politeToggle.isOn != self.currentPolite {
             print(self.politeToggle.isOn)
             self.currentPolite = self.politeToggle.isOn
+            UserDefaults.standard.set(self.currentPolite, forKey: "user_polite")
             isChanged = true
         }
         

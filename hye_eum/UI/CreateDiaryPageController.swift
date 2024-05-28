@@ -132,11 +132,21 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         print(qnaString)
+        
+        let polite = UserDefaults.standard.bool(forKey: "user_polite")
+        var translated_polite = ""
+        
+        if polite == true {
+            translated_polite = "경어"
+        } else {
+            translated_polite = "평어"
+        }
+        
         // Request body 생성
         let requestBody: [String: String] = [
             "qna_string": qnaString,
             "alignment": alignment,
-            "polite" : "경어"
+            "polite" : translated_polite
         ]
         
         print("Request body: \(requestBody)")
@@ -205,7 +215,7 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
         print(savedQA)
 
         // 감정 생성
-        let emotionAlertController = UIAlertController(title: "감정 분석중", message: "당신의 감정을 분석 중입니다. \n 잠시만 기다려주세요.", preferredStyle: .alert)
+        let emotionAlertController = UIAlertController(title: "감정 분석중", message: "\(self.consolation)", preferredStyle: .alert)
         present(emotionAlertController, animated: true, completion: nil)
 
         guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/emotion-generation") else {

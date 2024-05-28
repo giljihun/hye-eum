@@ -18,6 +18,7 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     // MARK: - UI Button
     @IBOutlet weak var welcome_nextBtn: UIButton!
     
+    
     // MARK: - Property
     let openingMents : [String] = [
         "오늘 하루는 어땠나요?",
@@ -42,28 +43,25 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     }
     
     // MARK: - Methods
-    func welcome_nextBtnAnimation() {
-        let fadeDuration = 1.5 // 페이드 인 시간 설정
-        let scaleDuration = 1.3 // 크기 조정 시간 설정
-        let scaleMultiplier: CGFloat = 1.2 // 크기를 키우는 배수 설정
-        
-        // 애니메이션 1: 페이드 인 및 크기 조정
-        UIView.animate(withDuration: fadeDuration, animations: {
-            self.welcome_nextBtn.alpha = 1.0
-            self.welcome_nextBtn.transform = CGAffineTransform(scaleX: scaleMultiplier, y: scaleMultiplier)
-        }, completion: { _ in
-            // 애니메이션 2: 원래 크기로 되돌리기
-            UIView.animate(withDuration: scaleDuration, animations: {
-                self.welcome_nextBtn.transform = CGAffineTransform.identity
-            }, completion: { _ in
-                // 애니메이션 반복
-                self.welcome_nextBtnAnimation()
-            })
-        })
+    func setupNextButton() {
+        welcome_nextBtn.addTarget(self, action: #selector(nextButtonTouchDown), for: [.touchDown, .touchDragEnter])
+        welcome_nextBtn.addTarget(self, action: #selector(nextButtonTouchUp), for: [.touchUpInside, .touchDragExit, .touchCancel])
     }
     
+    @objc func nextButtonTouchDown() {
+        UIView.animate(withDuration: 0.1) {
+            self.welcome_nextBtn.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            self.welcome_nextBtn.alpha = 0.8
+        }
+    }
     
-    // Configure the openingMent label
+    @objc func nextButtonTouchUp() {
+        UIView.animate(withDuration: 0.1) {
+            self.welcome_nextBtn.transform = CGAffineTransform.identity
+            self.welcome_nextBtn.alpha = 1.0
+        }
+    }
+    
     private func configureOpeningMentLabel() {
         openingMent.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         openingMent.textColor = .darkGray
@@ -135,5 +133,16 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
         
     }
     @IBAction func nextBtnTapped(_ sender: UIButton) {
+        // 버튼 탭 시 수행할 동작 추가
+        print("Next button tapped")
+        
+        // 버튼 클릭 시 살짝 커지는 효과 추가
+        UIView.animate(withDuration: 0.1, animations: {
+            self.welcome_nextBtn.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.1) {
+                self.welcome_nextBtn.transform = CGAffineTransform.identity
+            }
+        })
     }
 }
