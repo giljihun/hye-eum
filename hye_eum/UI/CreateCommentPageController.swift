@@ -60,7 +60,7 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
     
     // MARK: - 이미지 로드 메서드
     private func loadImage(from urlString: String) {
-        let loadingAlert = UIAlertController(title: "이미지 불러오는 중!", message: "이미지를 불러오는 중입니다. 잠시만 기다려주세요.", preferredStyle: .alert)
+        let loadingAlert = UIAlertController(title: "이미지 불러오는 중!", message: "잠시만 기다려주세요.", preferredStyle: .alert)
         present(loadingAlert, animated: true, completion: nil)
         
         guard let url = URL(string: urlString) else {
@@ -123,7 +123,7 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
     private func sendPostRequest(comment: String, emotion: String) {
         
         // * 엔드라인 기준 library_id == user_tag
-        let libraryID = UserDefaults.standard.integer(forKey: "library_id")
+        let libraryID = UserDefaults.standard.integer(forKey: "current_library_id")
         print(libraryID)
         
         guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/books") else {

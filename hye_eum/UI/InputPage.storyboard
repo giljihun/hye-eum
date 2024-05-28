@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vkP-8M-I6x">
-                                <rect key="frame" x="109" y="611.66666666666663" width="175" height="40"/>
+                                <rect key="frame" x="109" y="594.66666666666663" width="175" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="175" id="umG-pj-XxB"/>
                                     <constraint firstAttribute="height" constant="40" id="vtC-T3-yV2"/>
@@ -64,7 +64,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생년월일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmk-My-1Dp">
-                                <rect key="frame" x="146.66666666666666" y="659.66666666666663" width="100" height="20"/>
+                                <rect key="frame" x="146.66666666666666" y="642.66666666666663" width="100" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="deo-hn-Mtb"/>
                                     <constraint firstAttribute="width" constant="100" id="s2c-ow-egl"/>
@@ -74,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6m-pT-c45">
-                                <rect key="frame" x="146.66666666666666" y="590.66666666666663" width="100" height="20"/>
+                                <rect key="frame" x="146.66666666666666" y="573.66666666666663" width="100" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Ecl-2R-uZu"/>
                                     <constraint firstAttribute="height" constant="20" id="RP2-iQ-Isw"/>
@@ -84,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="WoC-29-Hv3">
-                                <rect key="frame" x="98.333333333333314" y="680.66666666666663" width="133" height="34.333333333333371"/>
+                                <rect key="frame" x="98.333333333333314" y="663.66666666666663" width="133" height="34.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="133" id="ilf-Ip-IUi"/>
                                 </constraints>
@@ -99,7 +99,9 @@
                                 </connections>
                             </datePicker>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITS-yN-k7M">
-                                <rect key="frame" x="239.33333333333334" y="680.66666666666663" width="53.666666666666657" height="34.333333333333371"/>
+                                <rect key="frame" x="239.33333333333334" y="663.66666666666663" width="53.666666666666657" height="34.333333333333371"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="완료"/>
                                 <connections>
@@ -120,9 +122,9 @@
                             <constraint firstItem="vkP-8M-I6x" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="H7k-cm-egW"/>
                             <constraint firstItem="WrG-Bf-obE" firstAttribute="bottom" secondItem="IXj-Da-Dom" secondAttribute="bottom" constant="-50" id="SJg-Vr-l3P"/>
                             <constraint firstItem="wmk-My-1Dp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="TEV-Hc-6bB"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ITS-yN-k7M" secondAttribute="bottom" constant="103" id="TRh-Od-Aje"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ITS-yN-k7M" secondAttribute="bottom" constant="120" id="TRh-Od-Aje"/>
                             <constraint firstItem="WrG-Bf-obE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cnm-RG-tsT"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WoC-29-Hv3" secondAttribute="bottom" constant="103" id="lsR-ea-NhR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WoC-29-Hv3" secondAttribute="bottom" constant="120" id="lsR-ea-NhR"/>
                             <constraint firstItem="rLS-Rl-5Kf" firstAttribute="trailingMargin" secondItem="IXj-Da-Dom" secondAttribute="trailing" constant="-10" id="r3o-hV-PVL"/>
                             <constraint firstItem="vkP-8M-I6x" firstAttribute="top" secondItem="V6m-pT-c45" secondAttribute="bottom" constant="1" id="u4S-ip-8Ew"/>
                             <constraint firstItem="WoC-29-Hv3" firstAttribute="top" secondItem="wmk-My-1Dp" secondAttribute="bottom" constant="1" id="xCz-eB-mFs"/>
@@ -181,6 +183,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

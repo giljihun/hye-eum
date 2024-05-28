@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="commentLabel" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkS-ga-mla">
-                                <rect key="frame" x="63.666666666666657" y="677" width="266" height="22"/>
+                                <rect key="frame" x="36.666666666666657" y="761.66666666666663" width="320" height="21.333333333333371"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="266" id="Z4g-VI-fBR"/>
+                                    <constraint firstAttribute="width" constant="320" id="Z4g-VI-fBR"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="감정">
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="17" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -42,7 +42,7 @@
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="17" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -57,7 +57,7 @@
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="17" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -72,7 +72,7 @@
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="17" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -87,7 +87,7 @@
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="17" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -102,7 +102,7 @@
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="17" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -117,7 +117,7 @@
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="17" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -137,7 +137,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GkS-ga-mla" secondAttribute="bottom" constant="119" id="4Bk-lZ-mZI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GkS-ga-mla" secondAttribute="bottom" constant="35" id="4Bk-lZ-mZI"/>
                             <constraint firstItem="UAq-wF-uX9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="nrJ-fV-gIr"/>
                             <constraint firstItem="UAq-wF-uX9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="p6q-z6-kR7"/>
                             <constraint firstItem="GkS-ga-mla" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="qtE-mA-yUf"/>

@@ -108,9 +108,16 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     
     // 멘트 디자인
     private func configureQuestionLabel() {
-        questionLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        let text = questionLabel.text ?? ""
+        questionLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         questionLabel.textColor = .darkGray
         questionLabel.numberOfLines = 0 // 여러 줄 표시 허용
+        let attributedString = NSMutableAttributedString(string: text)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10 // 원하는 줄 간격 설정
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.kern, value: 2, range: NSRange(location: 0, length: attributedString.length)) // 글자 사이 간격 설정
+        questionLabel.attributedText = attributedString
         questionLabel.lineBreakMode = .byWordWrapping
         questionLabel.textAlignment = .center
     }

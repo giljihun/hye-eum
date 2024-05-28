@@ -4,8 +4,14 @@ import SwiftUI
 
 class StatsPageController: UIViewController {
     
+    // MARK: - Book Struct
+    
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var backBtn: UIButton!
+    
+    let userTag = UserDefaults.standard.integer(forKey: "user_tag")
+    let currentLibraryID = UserDefaults.standard.integer(forKey: "current_library_id")
+    let prevLibraryID = UserDefaults.standard.integer(forKey: "previous_library_id")
     
     var emotionData: [String] = ["기쁨", "화남", "슬픔", "즐거움"]
     var countData: [Int] = [0, 0, 0, 0]
@@ -22,11 +28,20 @@ class StatsPageController: UIViewController {
         print("BEFORE FETCHING")
         
         fetchStats()
+        
+        if currentLibraryID != prevLibraryID {
+            fetchComment()
+        }
+    
+        commentLabel.numberOfLines = 0
+        commentLabel.lineBreakMode = .byWordWrapping
     }
     
     // MARK: - 통계 가져오기
     func fetchStats() {
-        let libraryID = UserDefaults.standard.integer(forKey: "library_id")
+        
+        // MARK: - 여기 로직 수정 요망
+        let libraryID = UserDefaults.standard.integer(forKey: "previous_library_id")
         print(libraryID)
         let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/statistics/\(libraryID)")!
         
@@ -59,12 +74,11 @@ class StatsPageController: UIViewController {
                         self.countData[3] = aggro
                     }
                     
-                    if let comment = jsonResult["gpt_comment"] as? String {
-                        self.comment = comment
-                    }
-                    
-                    print("countData :" ,self.countData)
-                    print("comment :", self.comment)
+//                    if let comment = jsonResult["gpt_comment"] as? String {
+//                        self.comment = comment
+//                    }
+//
+//                    print("comment :", self.comment)
                     
                     DispatchQueue.main.async {
                         self.drawChart()
@@ -77,15 +91,47 @@ class StatsPageController: UIViewController {
         task.resume()
     }
     
+    func fetchComment() {
+        
+
+        let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/statistics/\(prevLibraryID)")!
+        print("previous LibraryID : ", prevLibraryID)
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+
+                    if let comment = jsonResult["gpt_comment"] as? String {
+                        DispatchQueue.main.async {
+                            self.commentLabel.text = comment
+                        }
+                    }
+
+                    print("comment :", self.comment)
+                
+                }
+            } catch {
+                print("Error parsing JSON: \(error.localizedDescription)")
+            }
+        }
+        task.resume()
+    }
     
     @IBAction func backBtnTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
     
     func drawChart() {
-        print("AFTER FETCHING")
-        print("eD", emotionData)
-        print("cD", countData)
         
         if #available(iOS 16.0, *) {
             
@@ -122,7 +168,7 @@ class StatsPageController: UIViewController {
             let hostView = UIHostingController(rootView: chart)
             
             // 차트 크기 설정
-            hostView.view.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 350)
+            hostView.view.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 280)
             
             // 차트를 현재 뷰 계층구조에 추가
             view.addSubview(hostView.view)
@@ -138,7 +184,7 @@ class StatsPageController: UIViewController {
             
             // 호스트 뷰를 commentLabel의 위에 배치하는 제약 조건 추가
             NSLayoutConstraint.activate([
-                hostView.view.bottomAnchor.constraint(equalTo: commentLabel.topAnchor, constant: -40),
+                hostView.view.bottomAnchor.constraint(equalTo: commentLabel.topAnchor, constant: -30),
                 hostView.view.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
         } else {

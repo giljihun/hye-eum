@@ -215,7 +215,7 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
         print(savedQA)
 
         // 감정 생성
-        let emotionAlertController = UIAlertController(title: "감정 분석중", message: "\(self.consolation)", preferredStyle: .alert)
+        let emotionAlertController = UIAlertController(title: "감정 분석중", message: "잠시만 기다려주세요.", preferredStyle: .alert)
         present(emotionAlertController, animated: true, completion: nil)
 
         guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/emotion-generation") else {
@@ -280,7 +280,7 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Image Generation
     private func generateImage(qnaString: String, emotion: String) {
-        let imageAlertController = UIAlertController(title: "이미지 생성중", message: "당신의 이미지를 생성 중입니다. \n 잠시만 기다려주세요.", preferredStyle: .alert)
+        let imageAlertController = UIAlertController(title: "이미지 생성중", message: "\(self.consolation)", preferredStyle: .alert)
         present(imageAlertController, animated: true, completion: nil)
 
         guard let url = URL(string: "https://port-0-hyeeum-backend-9zxht12blqj9n2fu.sel4.cloudtype.app/image-generation") else {

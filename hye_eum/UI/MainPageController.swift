@@ -322,10 +322,31 @@ class MainPageController: UIViewController {
                     if let lastLibraryResponse = response.last,
                        let lastStatistics = lastLibraryResponse.statistics.last {
                         let lastLibraryID = lastStatistics.library_id
-                        print("library_id : \(lastLibraryID)")
+                        print("라스트 library_id : \(lastLibraryID)")
                         
-                        // UserDefaults에 저장
-                        UserDefaults.standard.set(lastLibraryID, forKey: "library_id")
+                        // UserDefaults에서 이전 library_id 값 가져오기
+                        let previousLibraryID = UserDefaults.standard.integer(forKey: "previous_library_id")
+                        
+                        if previousLibraryID == 0 {
+                            // 현재 library_id 값을 이전 값과 현재 값 모두에 저장
+                            UserDefaults.standard.set(lastLibraryID, forKey: "previous_library_id")
+                            UserDefaults.standard.set(lastLibraryID, forKey: "current_library_id")
+                        } else {
+                            // 현재 library_id 값이 이전 값과 다른 경우
+                            if lastLibraryID != previousLibraryID {
+                                // 이전 library_id 값을 업데이트
+                                UserDefaults.standard.set(previousLibraryID, forKey: "previous_library_id")
+                                print("라이브러리 값이 바뀜")
+                                print("이전 library_id : \(previousLibraryID)")
+                                // 현재 library_id 값을 저장
+                                UserDefaults.standard.set(lastLibraryID, forKey: "current_library_id")
+                                print("현재 library_id : \(lastLibraryID)")
+                            } else {
+                                // 현재 library_id 값을 저장
+                                print("라이브러리 값 변동 X")
+                                UserDefaults.standard.set(lastLibraryID, forKey: "current_library_id")
+                            }
+                        }
                     }
                 }
 

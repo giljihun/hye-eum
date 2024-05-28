@@ -27,7 +27,7 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     ]
     var currentMentIndex = 0
     var mentTimer: Timer?
-    let mentDuration: TimeInterval = 2.0
+    let mentDuration: TimeInterval = 1.3
     let fadeDuration: TimeInterval = 1.3
     
     // MARK: - View Lifecycle
@@ -49,14 +49,14 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     }
     
     @objc func nextButtonTouchDown() {
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 1.0) {
             self.welcome_nextBtn.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             self.welcome_nextBtn.alpha = 0.8
         }
     }
     
     @objc func nextButtonTouchUp() {
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 1.0) {
             self.welcome_nextBtn.transform = CGAffineTransform.identity
             self.welcome_nextBtn.alpha = 1.0
         }
