@@ -131,10 +131,12 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        print(qnaString)
         // Request body 생성
         let requestBody: [String: String] = [
             "qna_string": qnaString,
-            "alignment": alignment
+            "alignment": alignment,
+            "polite" : "경어"
         ]
         
         print("Request body: \(requestBody)")
@@ -226,7 +228,7 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
             print("Error serializing JSON: \(error)")
             return
         }
-
+        
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -261,7 +263,9 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
             }
         }
 
-        task.resume()
+        DispatchQueue.global(qos: .userInitiated).async {
+            task.resume()
+        }
     }
 
     // MARK: - Image Generation

@@ -385,3 +385,23 @@ extension MainPageController: UICollectionViewDelegateFlowLayout {
         targetContentOffset.pointee = CGPoint(x: index * cellWidth - scrollView.contentInset.left, y: scrollView.contentInset.top)
     }
 }
+
+extension MainPageController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedBook = books[indexPath.item]
+        
+        // DetailPage 인스턴스 생성
+        guard let detailPageViewController = storyboard?.instantiateViewController(withIdentifier: "DetailPageController") as? DetailPageController else {
+            return
+        }
+        
+        // 선택된 책 정보를 DetailPage로 전달
+        detailPageViewController.book = selectedBook
+        
+        // 모달 스타일 설정
+        detailPageViewController.modalPresentationStyle = .pageSheet
+        
+        // 모달 띄우기
+        present(detailPageViewController, animated: true, completion: nil)
+    }
+}

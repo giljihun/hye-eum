@@ -26,11 +26,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PU-mv-yY7">
-                                <rect key="frame" x="236" y="357" width="25" height="22"/>
+                                <rect key="frame" x="224.66666666666666" y="343.66666666666669" width="36.333333333333343" height="31"/>
                                 <attributedString key="attributedText">
                                     <fragment content="기쁨">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="25" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" size="17" name="KCC-Sonkeechung"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -38,39 +38,39 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPp-MV-oHa">
-                                <rect key="frame" x="47" y="383" width="214" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPp-MV-oHa">
+                                <rect key="frame" x="127.33333333333333" y="378.66666666666669" width="133.66666666666669" height="26.333333333333314"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2024">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="21" name="KCC-Sonkeechung"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="년">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="21" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" metaFont="system" size="17"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" 5">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="21" name="KCC-Sonkeechung"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="월">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="21" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" metaFont="system" size="17"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" 27">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="21" name="KCC-Sonkeechung"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="일">
                                         <attributes>
-                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="21" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" metaFont="system" size="17"/>
                                         </attributes>
                                     </fragment>
@@ -78,12 +78,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-D3-XqM">
-                                <rect key="frame" x="94" y="307.66666666666669" width="92.333333333333314" height="13.666666666666686"/>
+                                <rect key="frame" x="81.333333333333343" y="311" width="117.33333333333334" height="17.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment content="세부">
                                         <attributes>
                                             <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="11" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -91,14 +91,14 @@
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="11" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="내용을">
                                         <attributes>
                                             <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="11" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -106,14 +106,14 @@
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="11" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="보려면">
                                         <attributes>
                                             <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="11" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -121,14 +121,14 @@
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="11" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="터치">
                                         <attributes>
                                             <color key="NSColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="11" name="KCC-Sonkeechung"/>
+                                            <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
                                             <font key="NSOriginalFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -140,10 +140,10 @@
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8PU-mv-yY7" secondAttribute="trailing" constant="19" id="Dk5-dh-iWz"/>
+                            <constraint firstItem="mPp-MV-oHa" firstAttribute="top" secondItem="Hr4-D3-XqM" secondAttribute="bottom" constant="50" id="DnJ-eE-akL"/>
                             <constraint firstAttribute="width" constant="280" id="KQn-01-HRG"/>
                             <constraint firstAttribute="trailing" secondItem="mPp-MV-oHa" secondAttribute="trailing" constant="19" id="TqT-A4-ebm"/>
                             <constraint firstItem="mPp-MV-oHa" firstAttribute="top" secondItem="8PU-mv-yY7" secondAttribute="bottom" constant="4" id="Ukk-tY-941"/>
-                            <constraint firstItem="mPp-MV-oHa" firstAttribute="top" secondItem="Hr4-D3-XqM" secondAttribute="bottom" constant="61.670000000000002" id="eOJ-zT-rxv"/>
                             <constraint firstItem="Hr4-D3-XqM" firstAttribute="centerX" secondItem="lbh-jF-m2x" secondAttribute="centerX" id="hgo-i7-3cg"/>
                             <constraint firstAttribute="height" constant="450" id="ih9-5K-lpD"/>
                             <constraint firstAttribute="bottom" secondItem="mPp-MV-oHa" secondAttribute="bottom" constant="45" id="sI9-sb-HME"/>
@@ -163,6 +163,7 @@
             <size key="customSize" width="615" height="389"/>
             <connections>
                 <outlet property="dateLabel" destination="mPp-MV-oHa" id="iLc-3i-jAl"/>
+                <outlet property="detailMentLabel" destination="Hr4-D3-XqM" id="f3k-rH-pET"/>
                 <outlet property="emotionLabel" destination="8PU-mv-yY7" id="Eqd-nm-7JG"/>
                 <outlet property="thumbnail" destination="6mw-Pj-bQ6" id="xMh-d3-3ef"/>
             </connections>

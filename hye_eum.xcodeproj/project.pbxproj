@@ -14,6 +14,8 @@
 		F211F1632C01ED06004F40B4 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F211F1612C01ED06004F40B4 /* MyCollectionViewCell.xib */; };
 		F211F1652C034C5F004F40B4 /* CreateCommentPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F211F1642C034C5F004F40B4 /* CreateCommentPage.storyboard */; };
 		F211F1672C034C74004F40B4 /* CreateCommentPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F211F1662C034C74004F40B4 /* CreateCommentPageController.swift */; };
+		F211F16A2C05A8E6004F40B4 /* DetailPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F211F1692C05A8E6004F40B4 /* DetailPageController.swift */; };
+		F211F16C2C05A8FD004F40B4 /* DetailPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F211F16B2C05A8FD004F40B4 /* DetailPage.storyboard */; };
 		F274332E2BF5F449009FC3F8 /* InputPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F274332D2BF5F449009FC3F8 /* InputPage.storyboard */; };
 		F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F274332F2BF5F465009FC3F8 /* InputPageController.swift */; };
 		F27433322BF5F4E1009FC3F8 /* InputModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27433312BF5F4E1009FC3F8 /* InputModalController.swift */; };
@@ -49,6 +51,8 @@
 		F211F1642C034C5F004F40B4 /* CreateCommentPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateCommentPage.storyboard; sourceTree = "<group>"; };
 		F211F1662C034C74004F40B4 /* CreateCommentPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommentPageController.swift; sourceTree = "<group>"; };
 		F211F1682C050F8E004F40B4 /* hye_eum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hye_eum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F211F1692C05A8E6004F40B4 /* DetailPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageController.swift; sourceTree = "<group>"; };
+		F211F16B2C05A8FD004F40B4 /* DetailPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPage.storyboard; sourceTree = "<group>"; };
 		F274332D2BF5F449009FC3F8 /* InputPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputPage.storyboard; sourceTree = "<group>"; };
 		F274332F2BF5F465009FC3F8 /* InputPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputPageController.swift; sourceTree = "<group>"; };
 		F27433312BF5F4E1009FC3F8 /* InputModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModalController.swift; sourceTree = "<group>"; };
@@ -93,7 +97,6 @@
 				1522B539C9291C7A5C4DD334 /* Pods-hye_eum.debug.xcconfig */,
 				56860C759190A4944B3383CD /* Pods-hye_eum.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -147,6 +150,7 @@
 				F211F1642C034C5F004F40B4 /* CreateCommentPage.storyboard */,
 				F274333B2BF5F8A8009FC3F8 /* StatsPage.storyboard */,
 				F274333F2BF5F902009FC3F8 /* OptionPage.storyboard */,
+				F211F16B2C05A8FD004F40B4 /* DetailPage.storyboard */,
 				F27E0FA22BF22F13005EC753 /* SplashPageController.swift */,
 				F27E0F9E2BF20368005EC753 /* WelcomePageController.swift */,
 				F274332F2BF5F465009FC3F8 /* InputPageController.swift */,
@@ -155,6 +159,7 @@
 				F211F1662C034C74004F40B4 /* CreateCommentPageController.swift */,
 				F274333D2BF5F8C0009FC3F8 /* StatsPageController.swift */,
 				F27433412BF5F912009FC3F8 /* OptionPageController.swift */,
+				F211F1692C05A8E6004F40B4 /* DetailPageController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				F211F1632C01ED06004F40B4 /* MyCollectionViewCell.xib in Resources */,
 				F274333C2BF5F8A8009FC3F8 /* StatsPage.storyboard in Resources */,
 				F27E0FA52BF23362005EC753 /* SplashPage.storyboard in Resources */,
+				F211F16C2C05A8FD004F40B4 /* DetailPage.storyboard in Resources */,
 				F27E0F8B2BECEBFD005EC753 /* Base in Resources */,
 				F27E0FA92BF23C5F005EC753 /* KCC-Sonkeechung.ttf in Resources */,
 				F27433362BF5F7EB009FC3F8 /* CreateDiaryPage.storyboard in Resources */,
@@ -321,6 +327,7 @@
 				F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */,
 				F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */,
 				F211F1622C01ED06004F40B4 /* MyCollectionViewCell.swift in Sources */,
+				F211F16A2C05A8E6004F40B4 /* DetailPageController.swift in Sources */,
 				F27433302BF5F465009FC3F8 /* InputPageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="KCC-Sonkeechung.ttf">
+            <string>KCC-Sonkeechung</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Detail Page Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DetailPageController" id="Y6W-OH-hqX" customClass="DetailPageController" customModule="hye_eum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzy-eG-OT0">
+                                <rect key="frame" x="21.666666666666657" y="146" width="350" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="eS4-l3-v7T"/>
+                                    <constraint firstAttribute="width" constant="350" id="ebQ-JL-h4U"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIC-8l-ocr">
+                                <rect key="frame" x="183" y="474" width="27" height="21.333333333333314"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="감정">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="17" name="KCC-Sonkeechung"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKy-ni-cKZ">
+                                <rect key="frame" x="37.666666666666657" y="524" width="318" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Kbt-v2-cbX"/>
+                                    <constraint firstAttribute="width" constant="318" id="pwx-fR-OqT"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="대화내용">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="14" name="NanumMyeongjoBold"/>
+                                            <font key="NSOriginalFont" size="14" name="HelveticaNeue-UltraLightItalic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-M4-DDN">
+                                <rect key="frame" x="173.33333333333334" y="104" width="46.666666666666657" height="33.666666666666657"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="날짜">
+                                        <attributes>
+                                            <font key="NSFont" size="27" name="KCC-Sonkeechung"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MIC-8l-ocr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ILm-pM-gwc"/>
+                            <constraint firstItem="yzy-eG-OT0" firstAttribute="top" secondItem="1TH-M4-DDN" secondAttribute="bottom" constant="8.3300000000000001" id="M3e-r4-RPk"/>
+                            <constraint firstItem="1TH-M4-DDN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="V55-E0-IJ0"/>
+                            <constraint firstItem="MIC-8l-ocr" firstAttribute="top" secondItem="yzy-eG-OT0" secondAttribute="bottom" constant="28" id="ZVY-No-Wpt"/>
+                            <constraint firstItem="1TH-M4-DDN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="45" id="iiW-eT-LVw"/>
+                            <constraint firstItem="yzy-eG-OT0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="nAk-cY-bmT"/>
+                            <constraint firstItem="DKy-ni-cKZ" firstAttribute="top" secondItem="MIC-8l-ocr" secondAttribute="bottom" constant="28.670000000000002" id="ngw-Rk-UpW"/>
+                            <constraint firstItem="DKy-ni-cKZ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="wz4-Pb-mfi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="1TH-M4-DDN" id="1jc-aC-GXp"/>
+                        <outlet property="emotionLabel" destination="MIC-8l-ocr" id="Pzr-6C-vyK"/>
+                        <outlet property="imageView" destination="yzy-eG-OT0" id="IWd-7f-4ze"/>
+                        <outlet property="textView" destination="DKy-ni-cKZ" id="4CW-7M-44J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.465648854961827" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

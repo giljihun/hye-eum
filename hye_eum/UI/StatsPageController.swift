@@ -1,5 +1,6 @@
 import UIKit
 import Charts
+import SwiftUI
 
 class StatsPageController: UIViewController {
     
@@ -11,13 +12,10 @@ class StatsPageController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchStats()
+        print("BEFORE FETCHING")
         
+        fetchStats()
     }
-    
-    
-    // MARK: - 데이터 적용
-
     
     // MARK: - 통계 가져오기
     func fetchStats() {
@@ -58,18 +56,78 @@ class StatsPageController: UIViewController {
                         self.comment = comment
                     }
                     
-                    print(self.countData)
-                    print(self.comment)
+                    print("countData :" ,self.countData)
+                    print("comment :", self.comment)
                     
-//                    DispatchQueue.main.async {
-//
-//                    }
-                    
+                    DispatchQueue.main.async {
+                        self.drawChart()
+                    }
                 }
             } catch {
                 print("Error parsing JSON: \(error.localizedDescription)")
             }
         }
         task.resume()
+    }
+    
+    func drawChart() {
+        print("AFTER FETCHING")
+        print("eD", emotionData)
+        print("cD", countData)
+        
+        if #available(iOS 16.0, *) {
+            let chart = Chart {
+                BarMark(
+                    x: .value("Shape Type", emotionData[0]),
+                    y: .value("Total Count", min(countData[0], 5))
+                )
+                .foregroundStyle(Color.yellow)
+                
+                BarMark(
+                    x: .value("Shape Type", emotionData[1]),
+                    y: .value("Total Count", min(countData[1], 5))
+                )
+                .foregroundStyle(Color.red)
+                
+                BarMark(
+                    x: .value("Shape Type", emotionData[2]),
+                    y: .value("Total Count", min(countData[2], 5))
+                )
+                .foregroundStyle(Color.blue)
+                
+                BarMark(
+                    x: .value("Shape Type", emotionData[3]),
+                    y: .value("Total Count", min(countData[3], 5))
+                )
+                .foregroundStyle(Color.orange)
+            }
+                .chartYScale(domain: 0...5)
+            
+            // 차트를 담을 호스트 뷰 생성
+            let hostView = UIHostingController(rootView: chart)
+            
+            // 차트 크기 설정
+            hostView.view.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 350)
+            
+            // 차트를 현재 뷰 계층구조에 추가
+            view.addSubview(hostView.view)
+            
+            hostView.view.translatesAutoresizingMaskIntoConstraints = false
+            
+            // 호스트 뷰의 너비를 슈퍼뷰의 너비에 맞게 조정
+            NSLayoutConstraint.activate([
+                hostView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                hostView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                hostView.view.heightAnchor.constraint(equalTo: hostView.view.widthAnchor, multiplier: 1.2)
+            ])
+
+            // 호스트 뷰를 commentLabel의 위에 배치하는 제약 조건 추가
+            NSLayoutConstraint.activate([
+                hostView.view.bottomAnchor.constraint(equalTo: commentLabel.topAnchor, constant: -40),
+                hostView.view.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

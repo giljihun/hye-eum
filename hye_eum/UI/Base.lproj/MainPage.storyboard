@@ -189,6 +189,14 @@
             </objects>
             <point key="canvasLocation" x="3575" y="268"/>
         </scene>
+        <!--DetailPageController-->
+        <scene sceneID="v9B-mf-cl7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DetailPageController" storyboardName="DetailPage" referencedIdentifier="DetailPageController" id="5Hp-39-hMq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="otZ-m9-VVw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2923" y="356"/>
+        </scene>
     </scenes>
     <resources>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
