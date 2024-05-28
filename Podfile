@@ -4,7 +4,7 @@
 target 'hye_eum' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'DGCharts'
+
   # Pods for hye_eum
 
 end

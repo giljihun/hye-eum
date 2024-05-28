@@ -140,7 +140,7 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
             "image": imageURL,
             "comment": comment,
             "detail_story": qnaString,
-            "emotion": "기쁨"
+            "emotion": emotion
         ]
         
         print("requestBody(books) : \(libraryID), \(imageURL), \(comment), \(qnaString), \(emotion)")

@@ -17,22 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cm9-Ek-Jdl">
-                                <rect key="frame" x="76" y="322" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cm9-Ek-Jdl">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ArS-8Y-A5z"/>
+                                    <constraint firstAttribute="height" constant="300" id="Yje-sA-Iy4"/>
+                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkS-ga-mla">
+                                <rect key="frame" x="175" y="636" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GkS-ga-mla" firstAttribute="top" secondItem="cm9-Ek-Jdl" secondAttribute="bottom" constant="60" id="Ghk-j0-NRb"/>
+                            <constraint firstItem="cm9-Ek-Jdl" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="glL-WB-kXi"/>
+                            <constraint firstItem="cm9-Ek-Jdl" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="oR8-a4-iOW"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="chartView" destination="cm9-Ek-Jdl" id="wPY-ab-oBu"/>
+                        <outlet property="barChartView" destination="cm9-Ek-Jdl" id="hMQ-Hu-ztC"/>
+                        <outlet property="commentLabel" destination="GkS-ga-mla" id="BJ6-kR-PWe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-2"/>
+            <point key="canvasLocation" x="74.045801526717554" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
