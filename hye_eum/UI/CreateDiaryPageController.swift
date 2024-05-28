@@ -161,15 +161,14 @@ class CreateDiaryPageController: UIViewController, UITextFieldDelegate {
                 self.comChatLabel.alpha = 0.0
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                    let newQuestion = jsonResponse["question"] as? String {
+                    print("newQuestion : ", newQuestion)
                     DispatchQueue.main.async {
-                        // "Q:"를 제거
-                        let cleanedQuestion = String(newQuestion.dropFirst(3))
 
                         UIView.animate(withDuration: self.fadeDuration) {
                             
                             self.comChatLabel.alpha = 1.0
                             
-                            self.comChatLabel.text = cleanedQuestion
+                            self.comChatLabel.text = newQuestion
                             
                             // 이전 질문과 답
                             self.myChatLabel.alpha = 1.0

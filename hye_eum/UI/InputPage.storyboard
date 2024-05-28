@@ -84,7 +84,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="WoC-29-Hv3">
-                                <rect key="frame" x="78.333333333333314" y="680.66666666666663" width="133" height="34.333333333333371"/>
+                                <rect key="frame" x="98.333333333333314" y="680.66666666666663" width="133" height="34.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="133" id="ilf-Ip-IUi"/>
                                 </constraints>
@@ -99,7 +99,7 @@
                                 </connections>
                             </datePicker>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITS-yN-k7M">
-                                <rect key="frame" x="219.33333333333334" y="680.66666666666663" width="53.666666666666657" height="34.333333333333371"/>
+                                <rect key="frame" x="239.33333333333334" y="680.66666666666663" width="53.666666666666657" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="완료"/>
                                 <connections>
@@ -114,7 +114,7 @@
                             <constraint firstItem="V6m-pT-c45" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4c0-Ct-olQ"/>
                             <constraint firstItem="rLS-Rl-5Kf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7jd-Jl-sF9"/>
                             <constraint firstItem="WrG-Bf-obE" firstAttribute="bottom" secondItem="rLS-Rl-5Kf" secondAttribute="bottom" constant="-50" id="9jo-wy-zBq"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ITS-yN-k7M" secondAttribute="trailing" constant="120" id="AnQ-Kz-UP8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ITS-yN-k7M" secondAttribute="trailing" constant="100" id="AnQ-Kz-UP8"/>
                             <constraint firstItem="ITS-yN-k7M" firstAttribute="leading" secondItem="WoC-29-Hv3" secondAttribute="trailing" constant="8" id="ESS-D4-ivO"/>
                             <constraint firstItem="WrG-Bf-obE" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="F1b-Eu-Lke"/>
                             <constraint firstItem="vkP-8M-I6x" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="H7k-cm-egW"/>
