@@ -187,7 +187,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXx-ID-Y2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3575" y="268"/>
+            <point key="canvasLocation" x="3546" y="106"/>
         </scene>
         <!--DetailPageController-->
         <scene sceneID="v9B-mf-cl7">
@@ -195,7 +195,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="DetailPageController" storyboardName="DetailPage" referencedIdentifier="DetailPageController" id="5Hp-39-hMq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otZ-m9-VVw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2923" y="356"/>
+            <point key="canvasLocation" x="3545" y="190"/>
         </scene>
     </scenes>
     <resources>
