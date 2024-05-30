@@ -28,6 +28,11 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
     // MARK: - UI Button
     @IBOutlet weak var doneBtn: UIButton!
     
+    // MARK: - UI Label
+    
+    @IBOutlet weak var emotionLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +40,11 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
         
         imageView.alpha = 0.0
         commentTextView.alpha = 0.0
+        commentTextView.text = ""
         pickerView.alpha = 0.0
         doneBtn.alpha = 0.0
+        emotionLabel.alpha = 0.0
+        commentLabel.alpha = 0.0
         
         
         print(qnaString)
@@ -56,6 +64,22 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
         commentTextView.layer.borderWidth = 1.0
         commentTextView.layer.borderColor = UIColor.lightGray.cgColor
         commentTextView.layer.cornerRadius = 8.0
+        commentTextView.layer.masksToBounds = false
+        commentTextView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        commentTextView.layer.shadowOpacity = 0.7
+        commentTextView.layer.shadowRadius = 4
+        commentTextView.layer.shadowColor = UIColor.gray.cgColor
+        
+        // 이미지 그림자 설정
+        imageView.layer.masksToBounds = false
+        imageView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        imageView.layer.shadowOpacity = 0.7
+        imageView.layer.shadowRadius = 4
+        imageView.layer.shadowColor = UIColor.gray.cgColor
+        
+
+        
+        
     }
     
     // MARK: - 이미지 로드 메서드
@@ -92,8 +116,10 @@ class CreateCommentPageController: UIViewController, UIPickerViewDelegate, UIPic
                     self.pickerView.alpha = 1.0
                     self.doneBtn.alpha = 1.0
                     self.imageView.alpha = 1.0
-                
+                    self.emotionLabel.alpha = 1.0
+                    self.commentLabel.alpha = 1.0
                     self.imageView.image = image
+                    
                 }
             }
         }
