@@ -75,7 +75,7 @@
                                     <fragment content="오늘의">
                                         <attributes>
                                             <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="14" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -88,7 +88,7 @@
                                     <fragment content="기분">
                                         <attributes>
                                             <font key="NSFont" size="14" name="KCC-Sonkeechung"/>
-                                            <font key="NSOriginalFont" size="14" name=".SFNS-Regular"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
