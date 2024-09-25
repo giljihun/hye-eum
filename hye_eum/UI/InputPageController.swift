@@ -109,7 +109,8 @@ class InputPageController: UIViewController, UITextFieldDelegate {
     // 멘트 디자인
     private func configureQuestionLabel() {
         let text = questionLabel.text ?? ""
-        questionLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        // questionLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        DeviceManager.shared.adjustFontSize(for: questionLabel, textStyle: "label")
         questionLabel.textColor = .darkGray
         questionLabel.numberOfLines = 0 // 여러 줄 표시 허용
         let attributedString = NSMutableAttributedString(string: text)

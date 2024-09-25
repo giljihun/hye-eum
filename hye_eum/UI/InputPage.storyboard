@@ -44,10 +44,9 @@
                                     <action selector="submitAnswer:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Tqo-Kb-M0q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="질문" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrG-Bf-obE">
-                                <rect key="frame" x="28" y="99" width="340" height="200"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrG-Bf-obE">
+                                <rect key="frame" x="43" y="326" width="308" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="340" id="9FO-NI-zrU"/>
                                     <constraint firstAttribute="height" constant="200" id="uaW-D6-B1m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -120,14 +119,16 @@
                             <constraint firstItem="ITS-yN-k7M" firstAttribute="leading" secondItem="WoC-29-Hv3" secondAttribute="trailing" constant="8" id="ESS-D4-ivO"/>
                             <constraint firstItem="WrG-Bf-obE" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="F1b-Eu-Lke"/>
                             <constraint firstItem="vkP-8M-I6x" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="H7k-cm-egW"/>
+                            <constraint firstItem="WrG-Bf-obE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="43" id="KQe-Rf-H3t"/>
                             <constraint firstItem="WrG-Bf-obE" firstAttribute="bottom" secondItem="IXj-Da-Dom" secondAttribute="bottom" constant="-50" id="SJg-Vr-l3P"/>
                             <constraint firstItem="wmk-My-1Dp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="TEV-Hc-6bB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ITS-yN-k7M" secondAttribute="bottom" constant="120" id="TRh-Od-Aje"/>
-                            <constraint firstItem="WrG-Bf-obE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cnm-RG-tsT"/>
+                            <constraint firstItem="WoC-29-Hv3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="98.329999999999998" id="jPI-Vh-Bmg"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WoC-29-Hv3" secondAttribute="bottom" constant="120" id="lsR-ea-NhR"/>
                             <constraint firstItem="rLS-Rl-5Kf" firstAttribute="trailingMargin" secondItem="IXj-Da-Dom" secondAttribute="trailing" constant="-10" id="r3o-hV-PVL"/>
                             <constraint firstItem="vkP-8M-I6x" firstAttribute="top" secondItem="V6m-pT-c45" secondAttribute="bottom" constant="1" id="u4S-ip-8Ew"/>
                             <constraint firstItem="WoC-29-Hv3" firstAttribute="top" secondItem="wmk-My-1Dp" secondAttribute="bottom" constant="1" id="xCz-eB-mFs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WrG-Bf-obE" secondAttribute="trailing" constant="42" id="yE3-tI-jPh"/>
                             <constraint firstItem="wmk-My-1Dp" firstAttribute="top" secondItem="vkP-8M-I6x" secondAttribute="bottom" constant="8" id="zy6-ky-GfJ"/>
                         </constraints>
                     </view>

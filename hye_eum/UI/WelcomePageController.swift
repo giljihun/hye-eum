@@ -34,6 +34,10 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         print("WelcomePageController instance created")
+        DeviceManager.shared.adjustFontSize(for: openingMent, textStyle: "label")
+        DeviceManager.shared.adjustFontSize(for: logoTextOne, textStyle: "splashLogo")
+        DeviceManager.shared.adjustFontSize(for: logoTextTwo, textStyle: "splashLogo")
+
         welcome_nextBtn.alpha = 0.0
         logoTextOne.alpha = 0.0
         logoTextTwo.alpha = 0.0
@@ -63,7 +67,7 @@ class WelcomePageController: UIViewController, UIAdaptivePresentationControllerD
     }
     
     private func configureOpeningMentLabel() {
-        openingMent.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+//        openingMent.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         openingMent.textColor = .darkGray
         openingMent.numberOfLines = 0
         openingMent.lineBreakMode = .byWordWrapping

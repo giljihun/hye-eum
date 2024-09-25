@@ -39,6 +39,7 @@
 		F27E0FA52BF23362005EC753 /* SplashPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA42BF23362005EC753 /* SplashPage.storyboard */; };
 		F27E0FA92BF23C5F005EC753 /* KCC-Sonkeechung.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA72BF23C5F005EC753 /* KCC-Sonkeechung.ttf */; };
 		F27E0FAA2BF23C5F005EC753 /* KCC-Sonkeechung.otf in Resources */ = {isa = PBXBuildFile; fileRef = F27E0FA82BF23C5F005EC753 /* KCC-Sonkeechung.otf */; };
+		F2DFE5D62CA3DB9900D9B105 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DFE5D52CA3DB9900D9B105 /* DeviceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		F27E0FA42BF23362005EC753 /* SplashPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashPage.storyboard; sourceTree = "<group>"; };
 		F27E0FA72BF23C5F005EC753 /* KCC-Sonkeechung.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KCC-Sonkeechung.ttf"; sourceTree = "<group>"; };
 		F27E0FA82BF23C5F005EC753 /* KCC-Sonkeechung.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KCC-Sonkeechung.otf"; sourceTree = "<group>"; };
+		F2DFE5D52CA3DB9900D9B105 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				F27E0F8C2BECEBFD005EC753 /* hye_eum.xcdatamodeld */,
 				F27E0F832BECEBFD005EC753 /* AppDelegate.swift */,
 				F27E0F852BECEBFD005EC753 /* SceneDelegate.swift */,
+				F2DFE5D52CA3DB9900D9B105 /* DeviceManager.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				F27E0F7C2BECEBFD005EC753 /* Sources */,
 				F27E0F7D2BECEBFD005EC753 /* Frameworks */,
 				F27E0F7E2BECEBFD005EC753 /* Resources */,
+				1806801705ECF7773BF71017 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,6 +289,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1806801705ECF7773BF71017 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hye_eum/Pods-hye_eum-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hye_eum/Pods-hye_eum-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hye_eum/Pods-hye_eum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2668912E4221938BFAF456F9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,6 +346,7 @@
 				F27E0F882BECEBFD005EC753 /* MainPageController.swift in Sources */,
 				F27E0F842BECEBFD005EC753 /* AppDelegate.swift in Sources */,
 				F20729E22BFDC4EF007A301B /* dummyCodes.swift in Sources */,
+				F2DFE5D62CA3DB9900D9B105 /* DeviceManager.swift in Sources */,
 				F27E0F862BECEBFD005EC753 /* SceneDelegate.swift in Sources */,
 				F211F1622C01ED06004F40B4 /* MyCollectionViewCell.swift in Sources */,
 				F211F16A2C05A8E6004F40B4 /* DetailPageController.swift in Sources */,
@@ -391,7 +413,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -454,7 +476,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

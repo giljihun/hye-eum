@@ -195,10 +195,10 @@ class OptionPageController: UIViewController {
         
         UIView.animate(withDuration: fadeDuration) {
             self.titleLabel.alpha = 1.0
-            self.poweredLabel.alpha = 1.0
-            self.sponsoredLabel.alpha = 1.0
+            self.poweredLabel.alpha = 0.0
+            self.sponsoredLabel.alpha = 0.0
             self.developedLabel.alpha = 1.0
-            
+
         }
     }
     // MARK: - 시작 레이아웃 애니메이션 메서드

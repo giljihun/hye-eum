@@ -6,5 +6,6 @@ target 'hye_eum' do
   use_frameworks!
 
   # Pods for hye_eum
+  pod 'DeviceKit', '~> 5.2'
 
 end

@@ -14,5 +14,7 @@ class SplashPageController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DeviceManager.shared.adjustFontSize(for: titleLabel, textStyle: "splashLogo")
+        DeviceManager.shared.adjustFontSize(for: titleLabel2, textStyle: "splashLogo")
     }
 }
